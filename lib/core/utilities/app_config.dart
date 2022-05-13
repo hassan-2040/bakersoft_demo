@@ -67,7 +67,7 @@ class AppConfig {
 
     switch (textColor) {
       case TextColor.primary:
-        _color = Theme.of(context).colorScheme.primary;
+        _color = Theme.of(context).primaryColor;
         break;
       case TextColor.primaryLight:
         _color = Theme.of(context).primaryColorDark;
@@ -88,7 +88,7 @@ class AppConfig {
         _color = Colors.blue;
         break;
       default:
-        _color = Colors.white;
+        _color = Colors.black;
         break;
     }
 

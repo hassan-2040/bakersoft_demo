@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/products_list_widget.dart';
 
+//TODO implement pagination
 class ProductsListPage extends StatelessWidget {
   const ProductsListPage({Key? key}) : super(key: key);
 
@@ -14,31 +15,34 @@ class ProductsListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     AppConfig().setRootContext(context);
     return Scaffold(
-      body: Column(children: [
-        Container(
-          color: Theme.of(context).primaryColor,
-          height: AppConfig.safeAreaTop,
-        ),
-        Expanded(
-          child: BlocBuilder<ProductsListBloc, ProductsListState>(
-            builder: (context, state) {
-              late Widget _view;
-              state.when(
-                loading: () {
-                  _view = const LoadingWidget();
-                },
-                success: (_products) {
-                  _view = ProductsListWidget(products: _products);
-                },
-                failure: (_errorMessage) {
-                  _view = FailureWidget(message: _errorMessage);
-                },
-              );
-              return _view;
-            },
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            color: Theme.of(context).primaryColor,
+            height: AppConfig.safeAreaTop,
           ),
-        ),
-      ]),
+          Expanded(
+            child: BlocBuilder<ProductsListBloc, ProductsListState>(
+              builder: (context, state) {
+                late Widget _view;
+                state.when(
+                  loading: () {
+                    _view = const LoadingWidget();
+                  },
+                  success: (_products) {
+                    _view = ProductsListWidget(products: _products);
+                  },
+                  failure: (_errorMessage) {
+                    _view = FailureWidget(message: _errorMessage);
+                  },
+                );
+                return _view;
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
