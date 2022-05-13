@@ -1,4 +1,5 @@
 import 'package:bakersoft_demo/core/domain/models/product.dart';
+import 'package:bakersoft_demo/core/presentation/widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +12,19 @@ class ProductsListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: products.length,
+    return GridView.builder(
       shrinkWrap: true,
-      itemBuilder: (context, index) {
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10.0,
+        vertical: 20,
+      ),
+      itemCount: products.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        mainAxisSpacing: 20,
+        crossAxisSpacing: 10,
+        crossAxisCount: 2,
+      ),
+      itemBuilder: (_, index) {
         return _ProductCardWidget(products[index]);
       },
     );
@@ -33,18 +43,18 @@ class _ProductCardWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-            ),
-            child: Image.network(
-              product.imageUrl,
-              fit: BoxFit.cover,
-              height: AppConfig.screenHeight * 0.2,
-              width: double.infinity,
+          Expanded(
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
+              child: ImageLoader(
+                imageUrl: product.imageUrl,
+                placeHolderHeight: AppConfig.screenHeight * 0.3,
+              ),
             ),
           ),
           const SizedBox(
@@ -56,7 +66,6 @@ class _ProductCardWidget extends StatelessWidget {
             style: AppConfig.getTextStyle(
               context: context,
               fontWeight: FontWeight.bold,
-
             ),
           ),
           const SizedBox(
