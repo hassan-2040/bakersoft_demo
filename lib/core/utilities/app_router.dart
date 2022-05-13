@@ -1,41 +1,43 @@
-// import 'package:flutter/material.dart';
+import 'package:bakersoft_demo/features/products_list/presentation/pages/products_list_page.dart';
+import 'package:bakersoft_demo/features/splash/pages/splash_page.dart';
+import 'package:flutter/material.dart';
 
-// class AppRouter {
-//   //app route names
-//   static const String splashScreenRoute = '/splashScreen';
-//   static const String homeScreenRoute = '/homeScreen';
+class AppRouter {
+  //app route names
+  static const String splashPageRoute = '/splashPage';
+  static const String productsListPageRoute = '/productsListPage';
 
-//   ///Used this function to make sure the home attribute of MaterialApp is not rendered
-//   ///in addition to the required screens. If this is not overridden, an extra screen pops up
-//   ///in the beginning of the navigation stack, as the base route '/'.
-//   ///See https://api.flutter.dev/flutter/widgets/WidgetsApp/initialRoute.html
-//   static List<Route<dynamic>> generateInitialRoute(String _string) {
-//     //use a switch statement to match strings to screens based on use-case
-//     return [
-//       MaterialPageRoute(
-//         builder: (_) => const SplashScreen(),
-//       ),
-//     ];
-//   }
+  ///Used this function to make sure the home attribute of MaterialApp is not rendered
+  ///in addition to the required Pages. If this is not overridden, an extra Page pops up
+  ///in the beginning of the navigation stack, as the base route '/'.
+  ///See https://api.flutter.dev/flutter/widgets/WidgetsApp/initialRoute.html
+  static List<Route<dynamic>> generateInitialRoute(String _string) {
+    //use a switch statement to match strings to Pages based on use-case
+    return [
+      MaterialPageRoute(
+        builder: (_) => const SplashPage(),
+      ),
+    ];
+  }
 
-//   static Route<dynamic> generateRoute(RouteSettings _settings) {
-//     switch (_settings.name) {
-//       case splashScreenRoute:
-//         return MaterialPageRoute(
-//           builder: (_) => const SplashScreen(),
-//         );
-//       case homeScreenRoute:
-//         return MaterialPageRoute(
-//           builder: (_) => const HomeScreen(),
-//         );
-//       default:
-//         return MaterialPageRoute(
-//           builder: (_) => Scaffold(
-//             body: Center(
-//               child: Text('No route defined for ${_settings.name}'),
-//             ),
-//           ),
-//         );
-//     }
-//   }
-// }
+  static Route<dynamic> generateRoute(RouteSettings _settings) {
+    switch (_settings.name) {
+      case splashPageRoute:
+        return MaterialPageRoute(
+          builder: (_) => const SplashPage(),
+        );
+      case productsListPageRoute:
+        return MaterialPageRoute(
+          builder: (_) => const ProductsListPage(),
+        );
+      default:
+        return MaterialPageRoute(
+          builder: (_) => Scaffold(
+            body: Center(
+              child: Text('No route defined for ${_settings.name}'),
+            ),
+          ),
+        );
+    }
+  }
+}
