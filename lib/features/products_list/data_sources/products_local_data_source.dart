@@ -9,8 +9,8 @@ class ProductsLocalDataSource {
       final String _response =
           await rootBundle.loadString('assets/products.json');
       final Map<String, dynamic> _json = json.decode(_response);
-      final List<dynamic> _products = _json['products']['page$_pageNo'];
-      return _products;
+      final List<dynamic>? _products = _json['products']['page$_pageNo'];
+      return _products ?? [];
     } catch (_) {
       rethrow;
     }

@@ -3,37 +3,9 @@ import 'package:bakersoft_demo/core/presentation/widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:flutter/material.dart';
 
-class ProductsListWidget extends StatelessWidget {
-  final List<Product> products;
-  const ProductsListWidget({
-    required this.products,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10.0,
-        vertical: 20,
-      ),
-      itemCount: products.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        mainAxisSpacing: 20,
-        crossAxisSpacing: 10,
-        crossAxisCount: 2,
-      ),
-      itemBuilder: (_, index) {
-        return _ProductCardWidget(products[index]);
-      },
-    );
-  }
-}
-
-class _ProductCardWidget extends StatelessWidget {
+class ProductCardWidget extends StatelessWidget {
   final Product product;
-  const _ProductCardWidget(this.product, {Key? key}) : super(key: key);
+  const ProductCardWidget(this.product, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

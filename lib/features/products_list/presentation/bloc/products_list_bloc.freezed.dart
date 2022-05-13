@@ -16,20 +16,19 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ProductsListEvent {
-  int get pageNo => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int pageNo) get,
+    required TResult Function() get,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int pageNo)? get,
+    TResult Function()? get,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int pageNo)? get,
+    TResult Function()? get,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,10 +48,6 @@ mixin _$ProductsListEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ProductsListEventCopyWith<ProductsListEvent> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -60,7 +55,6 @@ abstract class $ProductsListEventCopyWith<$Res> {
   factory $ProductsListEventCopyWith(
           ProductsListEvent value, $Res Function(ProductsListEvent) then) =
       _$ProductsListEventCopyWithImpl<$Res>;
-  $Res call({int pageNo});
 }
 
 /// @nodoc
@@ -71,27 +65,12 @@ class _$ProductsListEventCopyWithImpl<$Res>
   final ProductsListEvent _value;
   // ignore: unused_field
   final $Res Function(ProductsListEvent) _then;
-
-  @override
-  $Res call({
-    Object? pageNo = freezed,
-  }) {
-    return _then(_value.copyWith(
-      pageNo: pageNo == freezed
-          ? _value.pageNo
-          : pageNo // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$$_GetCopyWith<$Res>
-    implements $ProductsListEventCopyWith<$Res> {
+abstract class _$$_GetCopyWith<$Res> {
   factory _$$_GetCopyWith(_$_Get value, $Res Function(_$_Get) then) =
       __$$_GetCopyWithImpl<$Res>;
-  @override
-  $Res call({int pageNo});
 }
 
 /// @nodoc
@@ -102,75 +81,51 @@ class __$$_GetCopyWithImpl<$Res> extends _$ProductsListEventCopyWithImpl<$Res>
 
   @override
   _$_Get get _value => super._value as _$_Get;
-
-  @override
-  $Res call({
-    Object? pageNo = freezed,
-  }) {
-    return _then(_$_Get(
-      pageNo: pageNo == freezed
-          ? _value.pageNo
-          : pageNo // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_Get implements _Get {
-  const _$_Get({this.pageNo = 0});
-
-  @override
-  @JsonKey()
-  final int pageNo;
+  const _$_Get();
 
   @override
   String toString() {
-    return 'ProductsListEvent.get(pageNo: $pageNo)';
+    return 'ProductsListEvent.get()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Get &&
-            const DeepCollectionEquality().equals(other.pageNo, pageNo));
+        (other.runtimeType == runtimeType && other is _$_Get);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(pageNo));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_GetCopyWith<_$_Get> get copyWith =>
-      __$$_GetCopyWithImpl<_$_Get>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int pageNo) get,
+    required TResult Function() get,
   }) {
-    return get(pageNo);
+    return get();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int pageNo)? get,
+    TResult Function()? get,
   }) {
-    return get?.call(pageNo);
+    return get?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int pageNo)? get,
+    TResult Function()? get,
     required TResult orElse(),
   }) {
     if (get != null) {
-      return get(pageNo);
+      return get();
     }
     return orElse();
   }
@@ -205,13 +160,7 @@ class _$_Get implements _Get {
 }
 
 abstract class _Get implements ProductsListEvent {
-  const factory _Get({final int pageNo}) = _$_Get;
-
-  @override
-  int get pageNo => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(ignore: true)
-  _$$_GetCopyWith<_$_Get> get copyWith => throw _privateConstructorUsedError;
+  const factory _Get() = _$_Get;
 }
 
 /// @nodoc
@@ -219,21 +168,22 @@ mixin _$ProductsListState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Product> products) success,
+    required TResult Function(List<Product> products, bool hasReachedMax)
+        success,
     required TResult Function(String error) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> products)? success,
+    TResult Function(List<Product> products, bool hasReachedMax)? success,
     TResult Function(String error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> products)? success,
+    TResult Function(List<Product> products, bool hasReachedMax)? success,
     TResult Function(String error)? failure,
     required TResult orElse(),
   }) =>
@@ -320,7 +270,8 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Product> products) success,
+    required TResult Function(List<Product> products, bool hasReachedMax)
+        success,
     required TResult Function(String error) failure,
   }) {
     return loading();
@@ -330,7 +281,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> products)? success,
+    TResult Function(List<Product> products, bool hasReachedMax)? success,
     TResult Function(String error)? failure,
   }) {
     return loading?.call();
@@ -340,7 +291,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> products)? success,
+    TResult Function(List<Product> products, bool hasReachedMax)? success,
     TResult Function(String error)? failure,
     required TResult orElse(),
   }) {
@@ -394,7 +345,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
   factory _$$_SuccessCopyWith(
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
-  $Res call({List<Product> products});
+  $Res call({List<Product> products, bool hasReachedMax});
 }
 
 /// @nodoc
@@ -410,12 +361,17 @@ class __$$_SuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? products = freezed,
+    Object? hasReachedMax = freezed,
   }) {
     return _then(_$_Success(
       products: products == freezed
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      hasReachedMax: hasReachedMax == freezed
+          ? _value.hasReachedMax
+          : hasReachedMax // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -423,7 +379,8 @@ class __$$_SuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success({final List<Product> products = const []})
+  const _$_Success(
+      {final List<Product> products = const [], this.hasReachedMax = false})
       : _products = products;
 
   final List<Product> _products;
@@ -435,8 +392,12 @@ class _$_Success implements _Success {
   }
 
   @override
+  @JsonKey()
+  final bool hasReachedMax;
+
+  @override
   String toString() {
-    return 'ProductsListState.success(products: $products)';
+    return 'ProductsListState.success(products: $products, hasReachedMax: $hasReachedMax)';
   }
 
   @override
@@ -444,12 +405,16 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality().equals(other._products, _products));
+            const DeepCollectionEquality().equals(other._products, _products) &&
+            const DeepCollectionEquality()
+                .equals(other.hasReachedMax, hasReachedMax));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_products));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_products),
+      const DeepCollectionEquality().hash(hasReachedMax));
 
   @JsonKey(ignore: true)
   @override
@@ -460,32 +425,33 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Product> products) success,
+    required TResult Function(List<Product> products, bool hasReachedMax)
+        success,
     required TResult Function(String error) failure,
   }) {
-    return success(products);
+    return success(products, hasReachedMax);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> products)? success,
+    TResult Function(List<Product> products, bool hasReachedMax)? success,
     TResult Function(String error)? failure,
   }) {
-    return success?.call(products);
+    return success?.call(products, hasReachedMax);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> products)? success,
+    TResult Function(List<Product> products, bool hasReachedMax)? success,
     TResult Function(String error)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(products);
+      return success(products, hasReachedMax);
     }
     return orElse();
   }
@@ -526,9 +492,11 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements ProductsListState {
-  const factory _Success({final List<Product> products}) = _$_Success;
+  const factory _Success(
+      {final List<Product> products, final bool hasReachedMax}) = _$_Success;
 
   List<Product> get products => throw _privateConstructorUsedError;
+  bool get hasReachedMax => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -599,7 +567,8 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Product> products) success,
+    required TResult Function(List<Product> products, bool hasReachedMax)
+        success,
     required TResult Function(String error) failure,
   }) {
     return failure(error);
@@ -609,7 +578,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> products)? success,
+    TResult Function(List<Product> products, bool hasReachedMax)? success,
     TResult Function(String error)? failure,
   }) {
     return failure?.call(error);
@@ -619,7 +588,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> products)? success,
+    TResult Function(List<Product> products, bool hasReachedMax)? success,
     TResult Function(String error)? failure,
     required TResult orElse(),
   }) {
