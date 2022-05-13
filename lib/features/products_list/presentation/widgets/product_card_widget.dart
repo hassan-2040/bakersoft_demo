@@ -43,12 +43,15 @@ class ProductCardWidget extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            Text(
-              product.name,
-              overflow: TextOverflow.ellipsis,
-              style: AppConfig.getTextStyle(
-                context: context,
-                fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Text(
+                product.name,
+                overflow: TextOverflow.ellipsis,
+                style: AppConfig.getTextStyle(
+                  context: context,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             const SizedBox(
