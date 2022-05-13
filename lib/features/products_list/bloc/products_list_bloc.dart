@@ -17,9 +17,10 @@ class ProductsListBloc extends Bloc<ProductsListEvent, ProductsListState> {
   }
 
   Future<void> onGet(event, emit) async {
+    emit(const _Loading());
     try {
       final _products = await _getAllProducts(event.pageNo);
-      if (event.pageNo == 0) {       
+      if (event.pageNo == 0) {
         _previousSuccessState = _Success(products: _products);
         emit(_previousSuccessState);
       } else {
