@@ -1,7 +1,7 @@
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
-import 'package:bakersoft_demo/features/products_list/bloc/products_list_bloc.dart';
-import 'package:bakersoft_demo/features/products_list/widgets/failure_widget.dart';
-import 'package:bakersoft_demo/features/products_list/widgets/loading_widget.dart';
+import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
+import 'package:bakersoft_demo/features/products_list/presentation/widgets/failure_widget.dart';
+import 'package:bakersoft_demo/features/products_list/presentation/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

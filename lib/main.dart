@@ -1,15 +1,16 @@
-import 'package:bakersoft_demo/features/products_list/bloc/products_list_bloc.dart';
-import 'package:bakersoft_demo/features/products_list/pages/products_list_page.dart';
+import 'package:bakersoft_demo/features/products_list/domain/repositories/products_repository.dart';
+import 'package:bakersoft_demo/features/products_list/domain/use_cases/get_all_products.dart';
+import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
+import 'package:bakersoft_demo/features/products_list/presentation/pages/products_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'core/data/data_sources/products_local_data_source.dart';
-import 'core/domain/repositories/products_repository.dart';
-import 'core/domain/use_cases/get_all_products.dart';
+import 'features/products_list/data_sources/products_local_data_source.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
 //TODO implement app router
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
           create: (context) => ProductsListBloc(
             GetAllProducts(
               productsRepository: ProductsRepository(
-                localDataSource: ProductsLocalDataSource(),              
+                localDataSource: ProductsLocalDataSource(),
               ),
             ),
           )..add(const ProductsListEvent.get()),

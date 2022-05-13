@@ -1,9 +1,9 @@
-import 'package:bakersoft_demo/core/domain/use_cases/get_all_products.dart';
+import 'package:bakersoft_demo/core/domain/models/product.dart';
 import 'package:bakersoft_demo/core/error/custom_error_responses.dart';
+import 'package:bakersoft_demo/features/products_list/domain/use_cases/get_all_products.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../core/domain/models/product.dart';
 
 part 'products_list_event.dart';
 part 'products_list_state.dart';
