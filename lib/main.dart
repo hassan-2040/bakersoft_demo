@@ -32,6 +32,9 @@ class MyApp extends StatelessWidget {
         title: 'Bakersoft Demo',
         theme: ThemeData(
           primarySwatch: Colors.lime,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.white,
+          )
         ),
         home: const ProductsListPage(),
       ),

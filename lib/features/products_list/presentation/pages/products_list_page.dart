@@ -15,13 +15,19 @@ class ProductsListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     AppConfig().setRootContext(context);
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Brotchen'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.shopping_cart_outlined),
+            onPressed: () {},
+          ),
+        ],
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Container(
-            color: Theme.of(context).primaryColor,
-            height: AppConfig.safeAreaTop,
-          ),
           Expanded(
             child: BlocBuilder<ProductsListBloc, ProductsListState>(
               builder: (context, state) {
