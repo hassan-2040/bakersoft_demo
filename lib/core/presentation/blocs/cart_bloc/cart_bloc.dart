@@ -46,7 +46,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   }
 
   void on_RemoveFromCart(event, emit) async {
-    removeFromCart(event.product);
+    await removeFromCart(event.product);
     emit(_Initial(
       cartItems: await getCartItems(),
       cartItemsCount: getCartItemsCount(),

@@ -47,9 +47,10 @@ class CartRepository {
     }
   }
 
-  void removeFromCart(Product product) {
+  Future<void> removeFromCart(Product product) async {
     _cartItems.remove(product);
     _updatePrice();
+    await localDataSource.saveCartToLocalStrage(_cartItems);
   }
 
   Future<void> clearCart() async {

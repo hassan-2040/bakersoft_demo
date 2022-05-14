@@ -8,10 +8,10 @@ class RemoveFromCart {
     required this.cartRepository,
   });
 
-  void call(
+  Future<void> call(
     Product product,
   ) async {
-    cartRepository.removeFromCart(
+    await cartRepository.removeFromCart(
       product,
     );
   }
