@@ -1,5 +1,6 @@
-import 'package:bakersoft_demo/core/domain/models/product.dart';
-import 'package:bakersoft_demo/core/presentation/widgets/cart_icon_button.dart';
+
+import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
+import 'package:bakersoft_demo/core/common_widgets/cart_icon_button.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/widgets/products_list_failure_widget.dart';

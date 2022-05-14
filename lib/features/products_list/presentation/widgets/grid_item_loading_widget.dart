@@ -1,4 +1,5 @@
-import 'package:bakersoft_demo/core/presentation/widgets/custom_opacity_animation.dart';
+
+import 'package:bakersoft_demo/core/common_widgets/custom_opacity_animation.dart';
 import 'package:flutter/material.dart';
 
 class GridItemLoadingWidget extends StatelessWidget {

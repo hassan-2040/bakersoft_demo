@@ -1,5 +1,6 @@
-import 'package:bakersoft_demo/core/domain/models/product.dart';
-import 'package:bakersoft_demo/core/presentation/widgets/image_loader.dart';
+
+import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
+import 'package:bakersoft_demo/core/common_widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
 import 'package:flutter/material.dart';

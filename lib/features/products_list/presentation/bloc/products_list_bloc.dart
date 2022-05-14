@@ -1,4 +1,5 @@
-import 'package:bakersoft_demo/core/domain/models/product.dart';
+
+import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
 import 'package:bakersoft_demo/core/error/custom_error_responses.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';
 import 'package:bakersoft_demo/features/products_list/domain/use_cases/get_all_products.dart';

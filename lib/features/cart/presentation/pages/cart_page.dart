@@ -1,5 +1,5 @@
-import 'package:bakersoft_demo/core/domain/models/product.dart';
-import 'package:bakersoft_demo/core/presentation/blocs/cart_bloc/cart_bloc.dart';
+import 'package:bakersoft_demo/core/common_cart_features/presentation/bloc/cart_bloc.dart';
+import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/features/cart/presentation/widgets/cart_failure_widget.dart';
 import 'package:bakersoft_demo/features/cart/presentation/widgets/cart_item_widget.dart';

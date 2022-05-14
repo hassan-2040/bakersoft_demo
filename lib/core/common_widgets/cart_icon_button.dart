@@ -1,4 +1,5 @@
-import 'package:bakersoft_demo/core/presentation/blocs/cart_bloc/cart_bloc.dart';
+
+import 'package:bakersoft_demo/core/common_cart_features/presentation/bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';

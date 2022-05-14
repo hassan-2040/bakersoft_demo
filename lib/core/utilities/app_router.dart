@@ -1,4 +1,4 @@
-import 'package:bakersoft_demo/core/domain/models/product.dart';
+import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
 import 'package:bakersoft_demo/features/cart/presentation/pages/cart_page.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/pages/products_list_page.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/pages/product_details_page.dart';
