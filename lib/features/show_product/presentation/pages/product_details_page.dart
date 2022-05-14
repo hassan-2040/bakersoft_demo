@@ -2,8 +2,10 @@ import 'package:bakersoft_demo/core/domain/models/product.dart';
 import 'package:bakersoft_demo/core/presentation/widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';
-import 'package:bakersoft_demo/features/show_product/widgets/quantity_button.dart';
+import 'package:bakersoft_demo/features/show_product/presentation/bloc/product_details_bloc.dart';
+import 'package:bakersoft_demo/features/show_product/presentation/widgets/quantity_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   final Product product;
@@ -69,15 +71,46 @@ class ProductDetailsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const QuantityButton(icon: Icon(Icons.remove)),
+                QuantityButton(
+                  icon: const Icon(Icons.remove),
+                  onPressed: () =>
+                      BlocProvider.of<ProductDetailsBloc>(context).add(
+                    const ProductDetailsEvent.decrementQuantity(),
+                  ),
+                ),
                 const SizedBox(
                   width: 5,
                 ),
-                const Text('1'),
+                BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
+                  builder: (context, state) {
+                    late Widget _view;
+                    state.when(
+                      initial: (int quantity) {
+                        _view = Text(
+                          '$quantity',
+                          style: AppConfig.getTextStyle(
+                            context: context,
+                            textSize: TextSize.sub,
+                          ),
+                        );
+                      },
+                      addToCartSuccess: () {
+                        _view = const Text('Added to cart');
+                      },
+                    );
+                    return _view;
+                  },
+                ),
                 const SizedBox(
                   width: 5,
                 ),
-                const QuantityButton(icon: Icon(Icons.add)),
+                QuantityButton(
+                  icon: const Icon(Icons.add),
+                  onPressed: () =>
+                      BlocProvider.of<ProductDetailsBloc>(context).add(
+                    const ProductDetailsEvent.incrementQuantity(),
+                  ),
+                ),
               ],
             ),
           ],
