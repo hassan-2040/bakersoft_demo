@@ -13,14 +13,20 @@ part 'products_list_bloc.freezed.dart';
 class ProductsListBloc extends Bloc<ProductsListEvent, ProductsListState> {
   final GetAllProducts _getAllProducts;
   final List<Product> _products = [];
+  bool _isInitialState = true; //to show loading indicator on first load/error case
   bool _hasReachedMax = false;
   int _pageNo = 0;
 
   ProductsListBloc(this._getAllProducts) : super(const _Loading()) {
     on<_Get>(onGet, transformer: droppable());
   }
-  //TODO handle error case loading
+
   Future<void> onGet(event, emit) async {
+    
+    if (_isInitialState) {
+      emit(const _Loading());
+    }
+
     if (_hasReachedMax) return;
     try {
       final _tempList = await _getAllProducts(_pageNo);
@@ -40,6 +46,7 @@ class ProductsListBloc extends Bloc<ProductsListEvent, ProductsListState> {
       }
       _products.addAll(_tempList);
       _pageNo++;
+      _isInitialState = false;
     } catch (_error) {
       emit(_Failure(customErrorResponses(_error)));
     }

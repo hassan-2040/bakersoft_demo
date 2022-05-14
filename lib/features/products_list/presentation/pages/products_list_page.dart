@@ -17,8 +17,7 @@ class ProductsListPage extends StatefulWidget {
 }
 
 class _ProductsListPageState extends State<ProductsListPage> {
-
-late ScrollController _scrollController;
+  late ScrollController _scrollController;
   @override
   void initState() {
     _scrollController = ScrollController();
@@ -37,7 +36,8 @@ late ScrollController _scrollController;
   _scrollListener() {
     if (!_scrollController.hasClients) return;
     if (_reachedBottom()) {
-      BlocProvider.of<ProductsListBloc>(context).add(const ProductsListEvent.get());
+      BlocProvider.of<ProductsListBloc>(context)
+          .add(const ProductsListEvent.get());
     }
   }
 
@@ -45,7 +45,6 @@ late ScrollController _scrollController;
     final _triggerNextFetch = 0.9 * _scrollController.position.maxScrollExtent;
     return _scrollController.position.pixels >= _triggerNextFetch;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +59,7 @@ late ScrollController _scrollController;
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: BlocBuilder<ProductsListBloc, ProductsListState>(
@@ -77,9 +77,8 @@ late ScrollController _scrollController;
                         horizontal: 10.0,
                         vertical: 20,
                       ),
-                      itemCount: hasReachedMax
-                          ? products.length
-                          : products.length + 2,
+                      itemCount:
+                          hasReachedMax ? products.length : products.length + 2,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         mainAxisSpacing: 20,

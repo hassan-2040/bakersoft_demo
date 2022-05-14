@@ -14,12 +14,14 @@ class ProductsListFailureWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(message),
         const SizedBox(height: 20),
         ElevatedButton(
           onPressed: () {
-            BlocProvider.of<ProductsListBloc>(context).add(const ProductsListEvent.get());
+            BlocProvider.of<ProductsListBloc>(context)
+                .add(const ProductsListEvent.get());
           },
           child: const Text('Retry'),
         ),
