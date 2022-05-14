@@ -99,7 +99,7 @@ class MyApp extends StatelessWidget {
               clearCart: ClearCart(
                 cartRepository: RepositoryProvider.of<CartRepository>(context),
               ),
-            )..add(const CartEvent.getCartItemCount()),
+            )..add(const CartEvent.getCartDetails()),
           ),
         ],
         child: MaterialApp(

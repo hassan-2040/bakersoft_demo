@@ -2,14 +2,13 @@ import 'package:bakersoft_demo/core/domain/models/product.dart';
 import 'package:bakersoft_demo/core/presentation/widgets/cart_icon_button.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
-import 'package:bakersoft_demo/features/products_list/presentation/widgets/failure_widget.dart';
+import 'package:bakersoft_demo/features/products_list/presentation/widgets/products_list_failure_widget.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/widgets/grid_item_loading_widget.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/widgets/grid_loading_widget.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/widgets/product_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-//TODO implement pagination
 class ProductsListPage extends StatefulWidget {
   const ProductsListPage({Key? key}) : super(key: key);
 
@@ -97,7 +96,7 @@ late ScrollController _scrollController;
                     );
                   },
                   failure: (_errorMessage) {
-                    _view = FailureWidget(message: _errorMessage);
+                    _view = ProductsListFailureWidget(message: _errorMessage);
                   },
                 );
                 return _view;

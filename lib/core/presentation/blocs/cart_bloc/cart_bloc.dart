@@ -2,6 +2,7 @@
 
 import 'package:bakersoft_demo/core/domain/models/product.dart';
 import 'package:bakersoft_demo/core/domain/use_cases/get_cart_items_count.dart';
+import 'package:bakersoft_demo/core/error/custom_error_responses.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/clear_cart.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_cart_items.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_total_price.dart';
@@ -26,24 +27,22 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     required this.removeFromCart,
     required this.clearCart,
   }) : super(const _Initial()) {
-    on<_GetCartItemCount>(on_GetCartItemCount);
     on<_GetCartDetails>(on_GetCartDetails);
     on<_RemoveFromCart>(on_RemoveFromCart);
     on<_ClearCart>(on_ClearCart);
   }
 
-  //TODO implement error handling
-  void on_GetCartItemCount(event, emit) {
-    emit(_Initial(cartItemsCount: getCartItemsCount()));
-  }
-
   void on_GetCartDetails(event, emit) async {
-    final _cartItems = await getCartItems();
+    try {
+      final _cartItems = await getCartItems();
     emit(_Initial(
       cartItems: _cartItems,
       cartItemsCount: getCartItemsCount(),
       totalPrice: getTotalPrice(),
     ));
+    } catch (_error) {
+      emit(_Failure(customErrorResponses(_error)));
+    }
   }
 
   void on_RemoveFromCart(event, emit) async {

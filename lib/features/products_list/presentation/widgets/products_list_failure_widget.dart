@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/products_list_bloc.dart';
 
-class FailureWidget extends StatelessWidget {
+class ProductsListFailureWidget extends StatelessWidget {
   final String message;
-  const FailureWidget({
+  const ProductsListFailureWidget({
     required this.message,
     Key? key,
   }) : super(key: key);

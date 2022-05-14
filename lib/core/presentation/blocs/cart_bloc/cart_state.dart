@@ -7,4 +7,5 @@ class CartState with _$CartState {
     @Default(0.0) double totalPrice,
     @Default({}) Map<Product, int> cartItems,
   }) = _Initial;
+  const factory CartState.failure(String message) = _Failure;
 }
