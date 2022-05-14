@@ -1,9 +1,9 @@
 import 'package:bakersoft_demo/core/domain/use_cases/add_to_cart.dart';
 import 'package:bakersoft_demo/core/domain/use_cases/get_cart_items_count.dart';
+import 'package:bakersoft_demo/core/presentation/blocs/cart_bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
 import 'package:bakersoft_demo/features/cart/data_sources/cart_local_data_source.dart';
 import 'package:bakersoft_demo/features/cart/domain/repositories/cart_repository.dart';
-import 'package:bakersoft_demo/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/features/products_list/domain/repositories/products_repository.dart';
 import 'package:bakersoft_demo/features/products_list/domain/use_cases/get_all_products.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
