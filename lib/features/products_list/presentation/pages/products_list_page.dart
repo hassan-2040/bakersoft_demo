@@ -1,4 +1,5 @@
 import 'package:bakersoft_demo/core/domain/models/product.dart';
+import 'package:bakersoft_demo/core/presentation/widgets/cart_icon_button.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/widgets/failure_widget.dart';
@@ -54,11 +55,8 @@ late ScrollController _scrollController;
       appBar: AppBar(
         title: const Text('Brotchen'),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.shopping_cart_outlined),
-            onPressed: () {},
-          ),
+        actions: const [
+          CartIconButton(),
         ],
       ),
       body: Column(

@@ -1,7 +1,9 @@
 import 'package:bakersoft_demo/core/domain/models/product.dart';
+import 'package:bakersoft_demo/core/presentation/widgets/cart_icon_button.dart';
 import 'package:bakersoft_demo/core/presentation/widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';
+import 'package:bakersoft_demo/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/bloc/product_details_bloc.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/widgets/nutritional_value_widget.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/widgets/quantity_button.dart';
@@ -19,18 +21,16 @@ class ProductDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        BlocProvider.of<ProductDetailsBloc>(context).add(const ProductDetailsEvent.resetQuantity());
+        BlocProvider.of<ProductDetailsBloc>(context)
+            .add(const ProductDetailsEvent.resetQuantity());
         return true;
       },
       child: Scaffold(
         appBar: AppBar(
           title: Text(product.name),
           centerTitle: true,
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.shopping_cart_outlined),
-            ),
+          actions: const [
+            CartIconButton(),
           ],
         ),
         body: SingleChildScrollView(
@@ -166,13 +166,15 @@ class ProductDetailsPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () =>
-                        BlocProvider.of<ProductDetailsBloc>(context).add(
-                       ProductDetailsEvent.addToCart(
-                        product: product,
-                        quantity: _quantity,                    
-                      ),
-                    ),
+                    onPressed: () {
+                      BlocProvider.of<ProductDetailsBloc>(context).add(
+                        ProductDetailsEvent.addToCart(
+                          product: product,
+                          quantity: _quantity,
+                        ),
+                      );
+                      BlocProvider.of<CartBloc>(context).add(const CartEvent.getCartItemCount());
+                    },
                     child: const Text('Add to cart'),
                   ),
                 ),
