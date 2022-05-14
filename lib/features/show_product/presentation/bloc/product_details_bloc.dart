@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:bakersoft_demo/core/domain/models/product.dart';
 import 'package:bakersoft_demo/core/domain/use_cases/add_to_cart.dart';
 import 'package:bakersoft_demo/features/show_product/domain/use_cases/decrement_quantity.dart';
 import 'package:bakersoft_demo/features/show_product/domain/use_cases/increment_quantity.dart';
@@ -39,5 +40,6 @@ class ProductDetailsBloc
       quantity: event.quantity,
     );
     emit(const _AddToCartSuccess());
+    emit(const _Initial());
   }
 }

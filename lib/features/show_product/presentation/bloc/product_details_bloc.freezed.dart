@@ -20,21 +20,21 @@ mixin _$ProductDetailsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() incrementQuantity,
     required TResult Function() decrementQuantity,
-    required TResult Function() addToCart,
+    required TResult Function(Product product, int quantity) addToCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
-    TResult Function()? addToCart,
+    TResult Function(Product product, int quantity)? addToCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
-    TResult Function()? addToCart,
+    TResult Function(Product product, int quantity)? addToCart,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -122,7 +122,7 @@ class _$_IncrementQuantity implements _IncrementQuantity {
   TResult when<TResult extends Object?>({
     required TResult Function() incrementQuantity,
     required TResult Function() decrementQuantity,
-    required TResult Function() addToCart,
+    required TResult Function(Product product, int quantity) addToCart,
   }) {
     return incrementQuantity();
   }
@@ -132,7 +132,7 @@ class _$_IncrementQuantity implements _IncrementQuantity {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
-    TResult Function()? addToCart,
+    TResult Function(Product product, int quantity)? addToCart,
   }) {
     return incrementQuantity?.call();
   }
@@ -142,7 +142,7 @@ class _$_IncrementQuantity implements _IncrementQuantity {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
-    TResult Function()? addToCart,
+    TResult Function(Product product, int quantity)? addToCart,
     required TResult orElse(),
   }) {
     if (incrementQuantity != null) {
@@ -233,7 +233,7 @@ class _$_DecrementQuantity implements _DecrementQuantity {
   TResult when<TResult extends Object?>({
     required TResult Function() incrementQuantity,
     required TResult Function() decrementQuantity,
-    required TResult Function() addToCart,
+    required TResult Function(Product product, int quantity) addToCart,
   }) {
     return decrementQuantity();
   }
@@ -243,7 +243,7 @@ class _$_DecrementQuantity implements _DecrementQuantity {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
-    TResult Function()? addToCart,
+    TResult Function(Product product, int quantity)? addToCart,
   }) {
     return decrementQuantity?.call();
   }
@@ -253,7 +253,7 @@ class _$_DecrementQuantity implements _DecrementQuantity {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
-    TResult Function()? addToCart,
+    TResult Function(Product product, int quantity)? addToCart,
     required TResult orElse(),
   }) {
     if (decrementQuantity != null) {
@@ -306,6 +306,9 @@ abstract class _$$_AddToCartCopyWith<$Res> {
   factory _$$_AddToCartCopyWith(
           _$_AddToCart value, $Res Function(_$_AddToCart) then) =
       __$$_AddToCartCopyWithImpl<$Res>;
+  $Res call({Product product, int quantity});
+
+  $ProductCopyWith<$Res> get product;
 }
 
 /// @nodoc
@@ -318,35 +321,75 @@ class __$$_AddToCartCopyWithImpl<$Res>
 
   @override
   _$_AddToCart get _value => super._value as _$_AddToCart;
+
+  @override
+  $Res call({
+    Object? product = freezed,
+    Object? quantity = freezed,
+  }) {
+    return _then(_$_AddToCart(
+      product: product == freezed
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product,
+      quantity: quantity == freezed
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+
+  @override
+  $ProductCopyWith<$Res> get product {
+    return $ProductCopyWith<$Res>(_value.product, (value) {
+      return _then(_value.copyWith(product: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_AddToCart implements _AddToCart {
-  const _$_AddToCart();
+  const _$_AddToCart({required this.product, required this.quantity});
+
+  @override
+  final Product product;
+  @override
+  final int quantity;
 
   @override
   String toString() {
-    return 'ProductDetailsEvent.addToCart()';
+    return 'ProductDetailsEvent.addToCart(product: $product, quantity: $quantity)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AddToCart);
+        (other.runtimeType == runtimeType &&
+            other is _$_AddToCart &&
+            const DeepCollectionEquality().equals(other.product, product) &&
+            const DeepCollectionEquality().equals(other.quantity, quantity));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(product),
+      const DeepCollectionEquality().hash(quantity));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_AddToCartCopyWith<_$_AddToCart> get copyWith =>
+      __$$_AddToCartCopyWithImpl<_$_AddToCart>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() incrementQuantity,
     required TResult Function() decrementQuantity,
-    required TResult Function() addToCart,
+    required TResult Function(Product product, int quantity) addToCart,
   }) {
-    return addToCart();
+    return addToCart(product, quantity);
   }
 
   @override
@@ -354,9 +397,9 @@ class _$_AddToCart implements _AddToCart {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
-    TResult Function()? addToCart,
+    TResult Function(Product product, int quantity)? addToCart,
   }) {
-    return addToCart?.call();
+    return addToCart?.call(product, quantity);
   }
 
   @override
@@ -364,11 +407,11 @@ class _$_AddToCart implements _AddToCart {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
-    TResult Function()? addToCart,
+    TResult Function(Product product, int quantity)? addToCart,
     required TResult orElse(),
   }) {
     if (addToCart != null) {
-      return addToCart();
+      return addToCart(product, quantity);
     }
     return orElse();
   }
@@ -409,7 +452,15 @@ class _$_AddToCart implements _AddToCart {
 }
 
 abstract class _AddToCart implements ProductDetailsEvent {
-  const factory _AddToCart() = _$_AddToCart;
+  const factory _AddToCart(
+      {required final Product product,
+      required final int quantity}) = _$_AddToCart;
+
+  Product get product => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_AddToCartCopyWith<_$_AddToCart> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

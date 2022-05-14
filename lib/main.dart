@@ -26,17 +26,17 @@ class MyApp extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<ProductsRepository>(
-          create: (_) => ProductsRepository(
+          create: (context) => ProductsRepository(
             localDataSource: ProductsLocalDataSource(),
           ),
         ),
         RepositoryProvider<CartRepository>(
-          create: (_) => CartRepository(
+          create: (context) => CartRepository(
             localDataSource: CartLocalDataSource(),
           ),
         ),
         RepositoryProvider<ProductDetailsRepository>(
-          create: (_) => ProductDetailsRepository(
+          create: (context) => ProductDetailsRepository(
             addToCart: AddToCart(
               cartRepository: RepositoryProvider.of<CartRepository>(context),
             ),

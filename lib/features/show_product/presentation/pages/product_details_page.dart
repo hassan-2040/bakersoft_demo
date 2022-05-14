@@ -75,58 +75,48 @@ class ProductDetailsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
-                  builder: (context, state) {
-                    late Widget _view;
-                    state.when(
-                      initial: (int quantity) {
-                        _view = Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            QuantityButton(
-                              icon: const Icon(Icons.remove),
-                              onPressed: () =>
-                                  BlocProvider.of<ProductDetailsBloc>(context)
-                                      .add(
-                                const ProductDetailsEvent.decrementQuantity(),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              '$quantity',
-                              style: AppConfig.getTextStyle(
-                                context: context,
-                                textSize: TextSize.sub,
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            QuantityButton(
-                              icon: const Icon(Icons.add),
-                              onPressed: () =>
-                                  BlocProvider.of<ProductDetailsBloc>(context)
-                                      .add(
-                                const ProductDetailsEvent.incrementQuantity(),
-                              ),
-                            ),
-                          ],
-                        );
-                      },
+                QuantityButton(
+                  icon: const Icon(Icons.remove),
+                  onPressed: () =>
+                      BlocProvider.of<ProductDetailsBloc>(context).add(
+                    const ProductDetailsEvent.decrementQuantity(),
+                  ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                BlocConsumer<ProductDetailsBloc, ProductDetailsState>(
+                  listener: (context, state) {
+                    state.whenOrNull(
                       addToCartSuccess: () {
-                        _view = Text(
-                          'Added to cart',
-                          style: AppConfig.getTextStyle(
-                            context: context,
-                            fontStyle: FontStyle.italic,
-                          ),
-                        );
+                        AppConfig.showSuccessSnackBar(
+                            snackBarText: 'Item added to cart!');
                       },
                     );
-                    return _view;
                   },
+                  builder: (context, state) {
+                    int _quantity = 1;
+                    state.whenOrNull(
+                      initial: (quantity) => _quantity = quantity,
+                    );
+                    return Text(
+                      '$_quantity',
+                      style: AppConfig.getTextStyle(
+                        context: context,
+                        textSize: TextSize.sub,
+                      ),
+                    );
+                  },
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                QuantityButton(
+                  icon: const Icon(Icons.add),
+                  onPressed: () =>
+                      BlocProvider.of<ProductDetailsBloc>(context).add(
+                    const ProductDetailsEvent.incrementQuantity(),
+                  ),
                 ),
                 const SizedBox(
                   width: 10,
@@ -160,32 +150,31 @@ class ProductDetailsPage extends StatelessWidget {
       floatingActionButton:
           BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
         builder: (context, state) {
-          bool _visible = true;
-          state.when(
-            initial: (_) => _visible = true,
-            addToCartSuccess: () => _visible = false,
+          int _quantity = 1;
+          state.whenOrNull(
+            initial: (quantity) => _quantity = quantity,
           );
-          return Visibility(
-            visible: _visible,
-            child: Row(
-              children: [
-                const SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () =>
-                        BlocProvider.of<ProductDetailsBloc>(context).add(
-                      const ProductDetailsEvent.addToCart(),
+          return Row(
+            children: [
+              const SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () =>
+                      BlocProvider.of<ProductDetailsBloc>(context).add(
+                     ProductDetailsEvent.addToCart(
+                      product: product,
+                      quantity: _quantity,                    
                     ),
-                    child: const Text('Add to cart'),
                   ),
+                  child: const Text('Add to cart'),
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+            ],
           );
         },
       ),
