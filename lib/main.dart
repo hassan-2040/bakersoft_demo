@@ -7,6 +7,7 @@ import 'package:bakersoft_demo/features/cart/domain/repositories/cart_repository
 import 'package:bakersoft_demo/features/cart/domain/user_cases/clear_cart.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_cart_items.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_total_price.dart';
+import 'package:bakersoft_demo/features/cart/domain/user_cases/remove_from_cart.dart';
 import 'package:bakersoft_demo/features/products_list/domain/repositories/products_repository.dart';
 import 'package:bakersoft_demo/features/products_list/domain/use_cases/get_all_products.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
@@ -90,6 +91,9 @@ class MyApp extends StatelessWidget {
                 cartRepository: RepositoryProvider.of<CartRepository>(context),
               ),
               getTotalPrice: GetTotalPrice(
+                cartRepository: RepositoryProvider.of<CartRepository>(context),
+              ),
+              removeFromCart: RemoveFromCart(
                 cartRepository: RepositoryProvider.of<CartRepository>(context),
               ),
               clearCart: ClearCart(
