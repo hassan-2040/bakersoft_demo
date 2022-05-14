@@ -60,6 +60,10 @@ class CartRepository {
     return _totalPrice;
   }
 
+  int getCartItemCount() {
+    return _cartItems.length;
+  }
+
   void _updatePrice() {
     _totalPrice = 0;
     _cartItems.forEach((key, value) {
