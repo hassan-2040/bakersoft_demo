@@ -8,6 +8,7 @@ import 'package:bakersoft_demo/features/products_list/presentation/bloc/products
 import 'package:bakersoft_demo/features/show_product/domain/repositories/product_details_repository.dart';
 import 'package:bakersoft_demo/features/show_product/domain/use_cases/decrement_quantity.dart';
 import 'package:bakersoft_demo/features/show_product/domain/use_cases/increment_quantity.dart';
+import 'package:bakersoft_demo/features/show_product/domain/use_cases/reset_quantity.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/bloc/product_details_bloc.dart';
 import 'package:bakersoft_demo/features/splash/bloc/splash_bloc.dart';
 import 'package:flutter/material.dart';
@@ -63,6 +64,10 @@ class MyApp extends StatelessWidget {
                     RepositoryProvider.of<ProductDetailsRepository>(context),
               ),
               decrementQuantity: DecrementQuantity(
+                productDetailsRepository:
+                    RepositoryProvider.of<ProductDetailsRepository>(context),
+              ),
+              resetQuantity: ResetQuantity(
                 productDetailsRepository:
                     RepositoryProvider.of<ProductDetailsRepository>(context),
               ),

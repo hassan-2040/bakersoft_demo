@@ -20,6 +20,7 @@ mixin _$ProductDetailsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() incrementQuantity,
     required TResult Function() decrementQuantity,
+    required TResult Function() resetQuantity,
     required TResult Function(Product product, int quantity) addToCart,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +28,7 @@ mixin _$ProductDetailsEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
+    TResult Function()? resetQuantity,
     TResult Function(Product product, int quantity)? addToCart,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +36,7 @@ mixin _$ProductDetailsEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
+    TResult Function()? resetQuantity,
     TResult Function(Product product, int quantity)? addToCart,
     required TResult orElse(),
   }) =>
@@ -42,6 +45,7 @@ mixin _$ProductDetailsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_IncrementQuantity value) incrementQuantity,
     required TResult Function(_DecrementQuantity value) decrementQuantity,
+    required TResult Function(_ResetQuantity value) resetQuantity,
     required TResult Function(_AddToCart value) addToCart,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +53,7 @@ mixin _$ProductDetailsEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
+    TResult Function(_ResetQuantity value)? resetQuantity,
     TResult Function(_AddToCart value)? addToCart,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +61,7 @@ mixin _$ProductDetailsEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
+    TResult Function(_ResetQuantity value)? resetQuantity,
     TResult Function(_AddToCart value)? addToCart,
     required TResult orElse(),
   }) =>
@@ -122,6 +128,7 @@ class _$_IncrementQuantity implements _IncrementQuantity {
   TResult when<TResult extends Object?>({
     required TResult Function() incrementQuantity,
     required TResult Function() decrementQuantity,
+    required TResult Function() resetQuantity,
     required TResult Function(Product product, int quantity) addToCart,
   }) {
     return incrementQuantity();
@@ -132,6 +139,7 @@ class _$_IncrementQuantity implements _IncrementQuantity {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
+    TResult Function()? resetQuantity,
     TResult Function(Product product, int quantity)? addToCart,
   }) {
     return incrementQuantity?.call();
@@ -142,6 +150,7 @@ class _$_IncrementQuantity implements _IncrementQuantity {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
+    TResult Function()? resetQuantity,
     TResult Function(Product product, int quantity)? addToCart,
     required TResult orElse(),
   }) {
@@ -156,6 +165,7 @@ class _$_IncrementQuantity implements _IncrementQuantity {
   TResult map<TResult extends Object?>({
     required TResult Function(_IncrementQuantity value) incrementQuantity,
     required TResult Function(_DecrementQuantity value) decrementQuantity,
+    required TResult Function(_ResetQuantity value) resetQuantity,
     required TResult Function(_AddToCart value) addToCart,
   }) {
     return incrementQuantity(this);
@@ -166,6 +176,7 @@ class _$_IncrementQuantity implements _IncrementQuantity {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
+    TResult Function(_ResetQuantity value)? resetQuantity,
     TResult Function(_AddToCart value)? addToCart,
   }) {
     return incrementQuantity?.call(this);
@@ -176,6 +187,7 @@ class _$_IncrementQuantity implements _IncrementQuantity {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
+    TResult Function(_ResetQuantity value)? resetQuantity,
     TResult Function(_AddToCart value)? addToCart,
     required TResult orElse(),
   }) {
@@ -233,6 +245,7 @@ class _$_DecrementQuantity implements _DecrementQuantity {
   TResult when<TResult extends Object?>({
     required TResult Function() incrementQuantity,
     required TResult Function() decrementQuantity,
+    required TResult Function() resetQuantity,
     required TResult Function(Product product, int quantity) addToCart,
   }) {
     return decrementQuantity();
@@ -243,6 +256,7 @@ class _$_DecrementQuantity implements _DecrementQuantity {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
+    TResult Function()? resetQuantity,
     TResult Function(Product product, int quantity)? addToCart,
   }) {
     return decrementQuantity?.call();
@@ -253,6 +267,7 @@ class _$_DecrementQuantity implements _DecrementQuantity {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
+    TResult Function()? resetQuantity,
     TResult Function(Product product, int quantity)? addToCart,
     required TResult orElse(),
   }) {
@@ -267,6 +282,7 @@ class _$_DecrementQuantity implements _DecrementQuantity {
   TResult map<TResult extends Object?>({
     required TResult Function(_IncrementQuantity value) incrementQuantity,
     required TResult Function(_DecrementQuantity value) decrementQuantity,
+    required TResult Function(_ResetQuantity value) resetQuantity,
     required TResult Function(_AddToCart value) addToCart,
   }) {
     return decrementQuantity(this);
@@ -277,6 +293,7 @@ class _$_DecrementQuantity implements _DecrementQuantity {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
+    TResult Function(_ResetQuantity value)? resetQuantity,
     TResult Function(_AddToCart value)? addToCart,
   }) {
     return decrementQuantity?.call(this);
@@ -287,6 +304,7 @@ class _$_DecrementQuantity implements _DecrementQuantity {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
+    TResult Function(_ResetQuantity value)? resetQuantity,
     TResult Function(_AddToCart value)? addToCart,
     required TResult orElse(),
   }) {
@@ -299,6 +317,123 @@ class _$_DecrementQuantity implements _DecrementQuantity {
 
 abstract class _DecrementQuantity implements ProductDetailsEvent {
   const factory _DecrementQuantity() = _$_DecrementQuantity;
+}
+
+/// @nodoc
+abstract class _$$_ResetQuantityCopyWith<$Res> {
+  factory _$$_ResetQuantityCopyWith(
+          _$_ResetQuantity value, $Res Function(_$_ResetQuantity) then) =
+      __$$_ResetQuantityCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetQuantityCopyWithImpl<$Res>
+    extends _$ProductDetailsEventCopyWithImpl<$Res>
+    implements _$$_ResetQuantityCopyWith<$Res> {
+  __$$_ResetQuantityCopyWithImpl(
+      _$_ResetQuantity _value, $Res Function(_$_ResetQuantity) _then)
+      : super(_value, (v) => _then(v as _$_ResetQuantity));
+
+  @override
+  _$_ResetQuantity get _value => super._value as _$_ResetQuantity;
+}
+
+/// @nodoc
+
+class _$_ResetQuantity implements _ResetQuantity {
+  const _$_ResetQuantity();
+
+  @override
+  String toString() {
+    return 'ProductDetailsEvent.resetQuantity()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetQuantity);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() incrementQuantity,
+    required TResult Function() decrementQuantity,
+    required TResult Function() resetQuantity,
+    required TResult Function(Product product, int quantity) addToCart,
+  }) {
+    return resetQuantity();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? incrementQuantity,
+    TResult Function()? decrementQuantity,
+    TResult Function()? resetQuantity,
+    TResult Function(Product product, int quantity)? addToCart,
+  }) {
+    return resetQuantity?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? incrementQuantity,
+    TResult Function()? decrementQuantity,
+    TResult Function()? resetQuantity,
+    TResult Function(Product product, int quantity)? addToCart,
+    required TResult orElse(),
+  }) {
+    if (resetQuantity != null) {
+      return resetQuantity();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IncrementQuantity value) incrementQuantity,
+    required TResult Function(_DecrementQuantity value) decrementQuantity,
+    required TResult Function(_ResetQuantity value) resetQuantity,
+    required TResult Function(_AddToCart value) addToCart,
+  }) {
+    return resetQuantity(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_IncrementQuantity value)? incrementQuantity,
+    TResult Function(_DecrementQuantity value)? decrementQuantity,
+    TResult Function(_ResetQuantity value)? resetQuantity,
+    TResult Function(_AddToCart value)? addToCart,
+  }) {
+    return resetQuantity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IncrementQuantity value)? incrementQuantity,
+    TResult Function(_DecrementQuantity value)? decrementQuantity,
+    TResult Function(_ResetQuantity value)? resetQuantity,
+    TResult Function(_AddToCart value)? addToCart,
+    required TResult orElse(),
+  }) {
+    if (resetQuantity != null) {
+      return resetQuantity(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetQuantity implements ProductDetailsEvent {
+  const factory _ResetQuantity() = _$_ResetQuantity;
 }
 
 /// @nodoc
@@ -387,6 +522,7 @@ class _$_AddToCart implements _AddToCart {
   TResult when<TResult extends Object?>({
     required TResult Function() incrementQuantity,
     required TResult Function() decrementQuantity,
+    required TResult Function() resetQuantity,
     required TResult Function(Product product, int quantity) addToCart,
   }) {
     return addToCart(product, quantity);
@@ -397,6 +533,7 @@ class _$_AddToCart implements _AddToCart {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
+    TResult Function()? resetQuantity,
     TResult Function(Product product, int quantity)? addToCart,
   }) {
     return addToCart?.call(product, quantity);
@@ -407,6 +544,7 @@ class _$_AddToCart implements _AddToCart {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
+    TResult Function()? resetQuantity,
     TResult Function(Product product, int quantity)? addToCart,
     required TResult orElse(),
   }) {
@@ -421,6 +559,7 @@ class _$_AddToCart implements _AddToCart {
   TResult map<TResult extends Object?>({
     required TResult Function(_IncrementQuantity value) incrementQuantity,
     required TResult Function(_DecrementQuantity value) decrementQuantity,
+    required TResult Function(_ResetQuantity value) resetQuantity,
     required TResult Function(_AddToCart value) addToCart,
   }) {
     return addToCart(this);
@@ -431,6 +570,7 @@ class _$_AddToCart implements _AddToCart {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
+    TResult Function(_ResetQuantity value)? resetQuantity,
     TResult Function(_AddToCart value)? addToCart,
   }) {
     return addToCart?.call(this);
@@ -441,6 +581,7 @@ class _$_AddToCart implements _AddToCart {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
+    TResult Function(_ResetQuantity value)? resetQuantity,
     TResult Function(_AddToCart value)? addToCart,
     required TResult orElse(),
   }) {

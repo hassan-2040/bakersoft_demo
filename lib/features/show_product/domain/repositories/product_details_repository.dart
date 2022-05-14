@@ -19,6 +19,8 @@ class ProductDetailsRepository {
     return _quantity;
   }
 
+  void resetQuantity() => _quantity = 1;
+
   void addProductToCart({
     required Product product,
     required int quantity,
