@@ -7,7 +7,7 @@ class GetTotalPrice {
     required this.cartRepository,
   });
 
-  Future<double> call() async {
+  double call() {
     return cartRepository.getTotalPrice();
   }
 }

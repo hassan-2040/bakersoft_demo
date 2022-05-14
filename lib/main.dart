@@ -4,6 +4,9 @@ import 'package:bakersoft_demo/core/presentation/blocs/cart_bloc/cart_bloc.dart'
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
 import 'package:bakersoft_demo/features/cart/data_sources/cart_local_data_source.dart';
 import 'package:bakersoft_demo/features/cart/domain/repositories/cart_repository.dart';
+import 'package:bakersoft_demo/features/cart/domain/user_cases/clear_cart.dart';
+import 'package:bakersoft_demo/features/cart/domain/user_cases/get_cart_items.dart';
+import 'package:bakersoft_demo/features/cart/domain/user_cases/get_total_price.dart';
 import 'package:bakersoft_demo/features/products_list/domain/repositories/products_repository.dart';
 import 'package:bakersoft_demo/features/products_list/domain/use_cases/get_all_products.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
@@ -81,6 +84,15 @@ class MyApp extends StatelessWidget {
           BlocProvider<CartBloc>(
             create: (context) => CartBloc(
               getCartItemsCount: GetCartItemsCount(
+                cartRepository: RepositoryProvider.of<CartRepository>(context),
+              ),
+              getCartItems: GetCartItems(
+                cartRepository: RepositoryProvider.of<CartRepository>(context),
+              ),
+              getTotalPrice: GetTotalPrice(
+                cartRepository: RepositoryProvider.of<CartRepository>(context),
+              ),
+              clearCart: ClearCart(
                 cartRepository: RepositoryProvider.of<CartRepository>(context),
               ),
             )..add(const CartEvent.getCartItemCount()),

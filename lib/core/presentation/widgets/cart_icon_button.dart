@@ -1,5 +1,6 @@
 import 'package:bakersoft_demo/core/presentation/blocs/cart_bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
+import 'package:bakersoft_demo/core/utilities/app_router.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +16,7 @@ class CartIconButton extends StatelessWidget {
       builder: (context, state) {
         int _count = 0;
         state.whenOrNull(
-          initial: ((itemCount) => _count = itemCount),
+          initial: (cartItemsCount, _, __) => _count = cartItemsCount,
         );
         return Padding(
           padding: const EdgeInsets.all(3.0),
@@ -24,7 +25,7 @@ class CartIconButton extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  //TODO navigate to cart page
+                  Navigator.pushNamed(context, AppRouter.cartPageRoute,);
                 },
                 icon: Icon(Icons.shopping_cart_outlined),
               ),

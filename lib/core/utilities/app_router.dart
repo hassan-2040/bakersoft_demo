@@ -1,4 +1,5 @@
 import 'package:bakersoft_demo/core/domain/models/product.dart';
+import 'package:bakersoft_demo/features/cart/presentation/pages/cart_page.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/pages/products_list_page.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/pages/product_details_page.dart';
 import 'package:bakersoft_demo/features/splash/pages/splash_page.dart';
@@ -9,6 +10,7 @@ class AppRouter {
   static const String splashPageRoute = '/splashPage';
   static const String productsListPageRoute = '/productsListPage';
   static const String productDetailsPageRoute = '/productDetailsPage';
+  static const String cartPageRoute = '/cartPage';
 
   ///Used this function to make sure the home attribute of MaterialApp is not rendered
   ///in addition to the required Pages. If this is not overridden, an extra Page pops up
@@ -36,7 +38,11 @@ class AppRouter {
       case productDetailsPageRoute:
         return MaterialPageRoute(
           builder: (_) => ProductDetailsPage(_settings.arguments as Product),
-        );  
+        );
+        case cartPageRoute:
+        return MaterialPageRoute(
+          builder: (_) => const CartPage(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

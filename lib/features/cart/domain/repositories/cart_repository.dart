@@ -35,7 +35,7 @@ class CartRepository {
   }
 
   //since there is no remote data source, we will just return the local data
-  Future<Map<Product, int>> getCart() async {
+  Future<Map<Product, int>> getCartItems() async {
     try {
       if (_cartItems.isEmpty) {
         _cartItems = await localDataSource.getCartFromLocalStrage();
@@ -51,9 +51,14 @@ class CartRepository {
     _cartItems.remove(product);
   }
 
-  void clearCart() {
-    _cartItems.clear();
-    _totalPrice = 0;
+  Future<void> clearCart() async {
+    try {
+      _cartItems.clear();
+      _totalPrice = 0;
+      await localDataSource.clearCart();
+    } catch (_) {
+      rethrow;
+    }
   }
 
   double getTotalPrice() {

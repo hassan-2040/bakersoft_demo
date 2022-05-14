@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:bakersoft_demo/core/domain/models/product.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+//TODO handle encoding/decoding in a better way
 class CartLocalDataSource {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
@@ -23,6 +24,15 @@ class CartLocalDataSource {
       return Map<Product, int>.from(json.decode(_cart));
     }
     return {};
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  Future<void> clearCart() async {
+    try {
+      final _p = await _prefs;
+      _p.remove('cart');
     } catch (_) {
       rethrow;
     }
