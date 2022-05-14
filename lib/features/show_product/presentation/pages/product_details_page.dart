@@ -173,7 +173,8 @@ class ProductDetailsPage extends StatelessWidget {
                           quantity: _quantity,
                         ),
                       );
-                      BlocProvider.of<CartBloc>(context).add(const CartEvent.getCartItemCount());
+                      BlocProvider.of<CartBloc>(context)
+                          .add(const CartEvent.getCartDetails());
                     },
                     child: const Text('Add to cart'),
                   ),

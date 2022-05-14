@@ -49,6 +49,7 @@ class CartRepository {
 
   void removeFromCart(Product product) {
     _cartItems.remove(product);
+    _updatePrice();
   }
 
   Future<void> clearCart() async {
