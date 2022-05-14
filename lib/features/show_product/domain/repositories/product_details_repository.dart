@@ -1,7 +1,13 @@
 import 'package:bakersoft_demo/core/domain/models/product.dart';
-import 'package:flutter/material.dart';
+import 'package:bakersoft_demo/core/domain/use_cases/add_to_cart.dart';
 
 class ProductDetailsRepository {
+  final AddToCart addToCart;
+
+  ProductDetailsRepository({
+    required this.addToCart,
+  });
+
   int _quantity = 1;
 
   int incrementQuantity() => ++_quantity;
@@ -13,8 +19,14 @@ class ProductDetailsRepository {
     return _quantity;
   }
 
-  void addToCart(Product product) {
-    //TODO add to cart with quantity
-    debugPrint('Product added to cart');
+  void addProductToCart({
+    required Product product,
+    required int quantity,
+  }) {
+    addToCart(
+      product: product,
+      quantity: quantity,
+    );
+    _quantity = 1;
   }
 }

@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:bakersoft_demo/features/show_product/domain/use_cases/add_to_cart.dart';
+import 'package:bakersoft_demo/core/domain/use_cases/add_to_cart.dart';
 import 'package:bakersoft_demo/features/show_product/domain/use_cases/decrement_quantity.dart';
 import 'package:bakersoft_demo/features/show_product/domain/use_cases/increment_quantity.dart';
 import 'package:bloc/bloc.dart';
@@ -34,7 +34,10 @@ class ProductDetailsBloc
   }
 
   void on_AddToCart(event, emit) async {
-    //TODO addToCart();
+    addToCart(
+      product: event.product,
+      quantity: event.quantity,
+    );
     emit(const _AddToCartSuccess());
   }
 }

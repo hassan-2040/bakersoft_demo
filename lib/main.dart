@@ -1,9 +1,11 @@
+import 'package:bakersoft_demo/core/domain/use_cases/add_to_cart.dart';
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
+import 'package:bakersoft_demo/features/cart/data_sources/cart_local_data_source.dart';
+import 'package:bakersoft_demo/features/cart/domain/repositories/cart_repository.dart';
 import 'package:bakersoft_demo/features/products_list/domain/repositories/products_repository.dart';
 import 'package:bakersoft_demo/features/products_list/domain/use_cases/get_all_products.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
 import 'package:bakersoft_demo/features/show_product/domain/repositories/product_details_repository.dart';
-import 'package:bakersoft_demo/features/show_product/domain/use_cases/add_to_cart.dart';
 import 'package:bakersoft_demo/features/show_product/domain/use_cases/decrement_quantity.dart';
 import 'package:bakersoft_demo/features/show_product/domain/use_cases/increment_quantity.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/bloc/product_details_bloc.dart';
@@ -28,9 +30,16 @@ class MyApp extends StatelessWidget {
             localDataSource: ProductsLocalDataSource(),
           ),
         ),
+        RepositoryProvider<CartRepository>(
+          create: (_) => CartRepository(
+            localDataSource: CartLocalDataSource(),
+          ),
+        ),
         RepositoryProvider<ProductDetailsRepository>(
           create: (_) => ProductDetailsRepository(
-            
+            addToCart: AddToCart(
+              cartRepository: RepositoryProvider.of<CartRepository>(context),
+            ),
           ),
         ),
       ],
@@ -42,20 +51,24 @@ class MyApp extends StatelessWidget {
           BlocProvider<ProductsListBloc>(
             create: (context) => ProductsListBloc(
               GetAllProducts(
-                productsRepository: RepositoryProvider.of<ProductsRepository>(context),
+                productsRepository:
+                    RepositoryProvider.of<ProductsRepository>(context),
               ),
             )..add(const ProductsListEvent.get()),
           ),
           BlocProvider<ProductDetailsBloc>(
             create: (context) => ProductDetailsBloc(
               incrementQuantity: IncrementQuantity(
-                productDetailsRepository: RepositoryProvider.of<ProductDetailsRepository>(context),
+                productDetailsRepository:
+                    RepositoryProvider.of<ProductDetailsRepository>(context),
               ),
               decrementQuantity: DecrementQuantity(
-                productDetailsRepository: RepositoryProvider.of<ProductDetailsRepository>(context),
+                productDetailsRepository:
+                    RepositoryProvider.of<ProductDetailsRepository>(context),
               ),
               addToCart: AddToCart(
-                productDetailsRepository: RepositoryProvider.of<ProductDetailsRepository>(context),
+                cartRepository:
+                    RepositoryProvider.of<CartRepository>(context),
               ),
             ),
           ),

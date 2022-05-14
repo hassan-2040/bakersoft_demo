@@ -1,4 +1,4 @@
-import 'package:bakersoft_demo/core/domain/repositories/cart_repository.dart';
+import 'package:bakersoft_demo/features/cart/domain/repositories/cart_repository.dart';
 
 class GetTotalPrice {
   final CartRepository cartRepository;
