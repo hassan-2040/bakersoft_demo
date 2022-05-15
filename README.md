@@ -19,7 +19,7 @@ It has following optional features:
 - View favourite products.
 
 ## App Features
-The app follows a modular approach. Each feature has its own module and each module is separated into data sources, domain and presentation layers. The assets folder contains a single [products.json] file containing products.
+The app follows a modular approach. Each feature has its own module and each module is separated into data sources, domain and presentation layers. The assets folder contains a single ***products.json*** file containing products.
 
 The app begins with the splash page.
 
@@ -37,6 +37,15 @@ The products are stored in the assets/products.json file and are decoded to disp
 The product model is the common entity throughout the app lifecycle. As the products list feature is the 
 root of the app, the product model is located in the domain layer of the products list feature.
 
+### Features Flow
+Each feature has, with some variations, the following flow:
+- UI in the **presentation** layer triggers an event in the relevant **bloc**.
+- The **bloc** takes in instances of all relevant **use cases** from the **domain** layer. Each **use case** is triggered as needed based on the incoming event.
+- The **use case** takes in the relevant **repository** instance and ***calls*** its functions, which calls the relevant function in the **repository**.
+- **repository** executes its function and returns the optimal response to **use case**. If it needs access to a **data source** it takes in an instance. 
+- **use case** returns the response to the **bloc**.
+- **bloc** emits a relevant state to update the UI in the **presentation** layer. 
+
 ### Splash
 As there is no API calls needed to be made during splash screen, this feature only includes the presentation layer. It has bloc form navigation and a page containing splash animation. 
 
@@ -44,22 +53,13 @@ As there is no API calls needed to be made during splash screen, this feature on
 This is the root page of the app. It shows a grid of products with a cart button and add to favourites button.
 
 - #### Data Sources
-    As the Backend data is mocked, there is only one data source with a single function that simply loads the products.json, decodes them and returns an array.
+    Contains ***ProductsLocalDataSource*** to fetch products from **products.json**.
 - #### Domain
     - ##### Models
-        It contains the [Product] model which is used throughout the app. 
+        Contains the ***Product*** model which is used throughout the app. 
     - ##### Repositories
-        Here is the products repository that takes in an instance of [ProductsLocalDataSource] and has a single method to [getAllProducts]. For the sake of pagination, [getAllProducts] takes an integer parameter as page number. 
-
-
-
-
-
-
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+        ***ProductsRepository*** takes in an instance of ***ProductsLocalDataSource*** and runs ***getAllProducts***, which takes page number and returns ***List<Product>***. 
+    - ##### Use Cases
+        Contains ***GetAllProducts*** that takes an instance of ***ProductsRepository*** that ***calls*** with a page number to fetch ***List<Product>***.
+- #### Presentation
+    - ##### Bloc
