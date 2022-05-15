@@ -10,7 +10,12 @@ import 'package:bakersoft_demo/features/cart/domain/user_cases/get_total_price.d
 import 'package:bakersoft_demo/features/cart/domain/user_cases/remove_from_cart.dart';
 import 'package:bakersoft_demo/features/favourite_products/data_sources/favourite_products_local_data_source.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/repositories/favourite_products_repository.dart';
-import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/save_favourite_products_to_storage.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/add_product_to_favourite.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/clear_favourite_products.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/get_favourite_products.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/remove_from_favourite.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/save_favourite_products.dart';
+import 'package:bakersoft_demo/features/favourite_products/presentation/bloc/favourite_products_bloc.dart';
 import 'package:bakersoft_demo/features/products_list/domain/repositories/products_repository.dart';
 import 'package:bakersoft_demo/features/products_list/domain/use_cases/get_all_products.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
@@ -108,6 +113,30 @@ class MyApp extends StatelessWidget {
                 cartRepository: RepositoryProvider.of<CartRepository>(context),
               ),
             )..add(const CartEvent.getCartDetails()),
+          ),
+          BlocProvider<FavouriteProductsBloc>(
+            create: (context) => FavouriteProductsBloc(
+              addProductToFavourite: AddProductToFavourite(
+                favouriteProductsRepository:
+                    RepositoryProvider.of<FavouriteProductsRepository>(context),
+              ),
+              clearFavouriteProducts: ClearFavouriteProducts(
+                favouriteProductsRepository:
+                    RepositoryProvider.of<FavouriteProductsRepository>(context),
+              ),
+              getFavouriteProducts: GetFavouriteProducts(
+                favouriteProductsRepository:
+                    RepositoryProvider.of<FavouriteProductsRepository>(context),
+              ),
+              removeFromFavourite: RemoveFromFavourite(
+                favouriteProductsRepository:
+                    RepositoryProvider.of<FavouriteProductsRepository>(context),
+              ),
+              saveFavouriteProducts: SaveFavouriteProducts(
+                favouriteProductsRepository:
+                    RepositoryProvider.of<FavouriteProductsRepository>(context),
+              ),
+            )..add(const FavouriteProductsEvent.get()),
           ),
         ],
         child: MaterialApp(

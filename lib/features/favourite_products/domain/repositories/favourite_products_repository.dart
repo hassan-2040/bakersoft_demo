@@ -41,7 +41,7 @@ class FavouriteProductsRepository {
     }
   }
 
-  Future<void> saveFavouriteProductsToLocalStrage() async {
+  Future<void> saveFavouriteProducts() async {
     try {
       await favouriteProductsLocalDataSource.saveFavouriteProductsToLocalStrage(
         _favouriteProducts,
