@@ -20,7 +20,7 @@ class FavouriteProductsRepository {
     _favouriteProducts.remove(product);
   }
 
-  bool isFavourite(Product product) {
+  bool checkIsFavourite(Product product) {
     return _favouriteProducts.contains(product);
   }
 
