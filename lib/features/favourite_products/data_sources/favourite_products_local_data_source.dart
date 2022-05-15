@@ -9,7 +9,6 @@ class FavouriteProductsLocalDataSource {
   Future<void> saveFavouriteProductsToLocalStrage(
     List<Product> _favouriteProducts,
   ) async {
-    print('saving');
     try {
       final _p = await _prefs;
       _p.setString(

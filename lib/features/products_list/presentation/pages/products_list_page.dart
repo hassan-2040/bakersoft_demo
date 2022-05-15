@@ -41,14 +41,11 @@ class _ProductsListPageState extends State<ProductsListPage>
     super.dispose();
   }
 
-  //TODO handle this in bloc
+  //saving cart and favourite products if app is inactive
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.paused) {
-      final _temp = SaveFavouriteProducts(
-          favouriteProductsRepository:
-              RepositoryProvider.of<FavouriteProductsRepository>(context));
-      _temp();
+      BlocProvider.of<FavouriteProductsBloc>(context).add(const FavouriteProductsEvent.saveFavouriteProducts());
     }
     super.didChangeAppLifecycleState(state);
   }
