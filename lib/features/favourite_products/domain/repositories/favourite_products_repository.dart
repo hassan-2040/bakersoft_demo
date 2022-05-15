@@ -16,21 +16,12 @@ class FavouriteProductsRepository {
     _favouriteProducts.add(product);
   }
 
-  Future<void> removeFromFavourite(Product product) async {
+  void removeFromFavourite(Product product) {
     _favouriteProducts.remove(product);
-    if (_favouriteProducts.isEmpty) {
-      await favouriteProductsLocalDataSource.clearFavouriteProducts();
-    }
   }
 
-  //TODO remove the future call
-  Future<void> clearFavouriteProducts() async {
-    try {
-      _favouriteProducts.clear();
-      await favouriteProductsLocalDataSource.clearFavouriteProducts();
-    } catch (_) {
-      rethrow;
-    }
+  void clearFavouriteProducts() {
+    _favouriteProducts.clear();
   }
 
   Future<void> loadSavedFavouriteProducts() async {

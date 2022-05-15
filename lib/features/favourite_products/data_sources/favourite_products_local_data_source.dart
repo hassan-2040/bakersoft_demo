@@ -30,15 +30,6 @@ class FavouriteProductsLocalDataSource {
     }
   }
 
-  Future<void> clearFavouriteProducts() async {
-    try {
-      final _p = await _prefs;
-      _p.remove('favouriteProducts');
-    } catch (_) {
-      rethrow;
-    }
-  }
-
   List<dynamic> _toJson(List<Product> _favouriteProducts) {
     final _list = [];
     for (var _p in _favouriteProducts) {

@@ -7,11 +7,7 @@ class ClearFavouriteProducts {
     required this.favouriteProductsRepository,
   });
 
-  Future<void> call() async {
-    try {
-      await favouriteProductsRepository.clearFavouriteProducts();
-    } catch (_) {
-      rethrow;
-    }
+  void call() {
+    favouriteProductsRepository.clearFavouriteProducts();
   }
 }
