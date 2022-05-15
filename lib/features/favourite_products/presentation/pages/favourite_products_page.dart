@@ -1,4 +1,6 @@
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
+import 'package:bakersoft_demo/core/utilities/constants.dart';
+import 'package:bakersoft_demo/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/bloc/favourite_products_bloc.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/widgets/favourite_products_failure_widget.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/widgets/favourite_products_item_widget.dart';
@@ -36,13 +38,26 @@ class FavouriteProductsPage extends StatelessWidget {
             loading: () => _view = const FavouriteProductsLoadingWidget(),
             failure: (message) =>
                 _view = FavouriteProductsFailureWidget(message),
-            success: (_, products) => _view = ListView.builder(
-              itemCount: products.length,
-              itemBuilder: (context, index) {
-                final product = products[index];
-                return FavouriteProductsItemWidget(product: product);
-              },
-            ),
+            success: (_, products) {
+              _view = BlocListener<CartBloc, CartState>(
+                listener: (context, state) {
+                  state.whenOrNull(
+                    addToCartSuccess: () {
+                      AppConfig.showSuccessSnackBar(
+                        snackBarText: 'Item added to cart!',
+                      );
+                    },
+                  );
+                },
+                child: ListView.builder(
+                  itemCount: products.length,
+                  itemBuilder: (context, index) {
+                    final product = products[index];
+                    return FavouriteProductsItemWidget(product: product);
+                  },
+                ),
+              );
+            },
           );
           return _view;
         },

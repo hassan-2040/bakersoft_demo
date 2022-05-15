@@ -182,6 +182,7 @@ class ProductDetailsPage extends StatelessWidget {
                     listener: (context, state) {
                       state.whenOrNull(
                         addToCartSuccess: () {
+                          printInfo('confirmation from product details');
                           //when item is added to cart, reset quantity
                           AppConfig.showSuccessSnackBar(
                             snackBarText: 'Item added to cart!',

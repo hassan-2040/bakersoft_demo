@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FavouriteProductsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getFavouriteProducts,
     required TResult Function() loadSavedFavouriteProducts,
     required TResult Function(Product product) addToFavourite,
     required TResult Function(Product product) removeFromFavourite,
@@ -28,7 +27,6 @@ mixin _$FavouriteProductsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
     TResult Function()? loadSavedFavouriteProducts,
     TResult Function(Product product)? addToFavourite,
     TResult Function(Product product)? removeFromFavourite,
@@ -38,7 +36,6 @@ mixin _$FavouriteProductsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
     TResult Function()? loadSavedFavouriteProducts,
     TResult Function(Product product)? addToFavourite,
     TResult Function(Product product)? removeFromFavourite,
@@ -49,7 +46,6 @@ mixin _$FavouriteProductsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetFavouriteProducts value) getFavouriteProducts,
     required TResult Function(_LoadSavedFavouriteProducts value)
         loadSavedFavouriteProducts,
     required TResult Function(_AddToFavourite value) addToFavourite,
@@ -62,7 +58,6 @@ mixin _$FavouriteProductsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
     TResult Function(_LoadSavedFavouriteProducts value)?
         loadSavedFavouriteProducts,
     TResult Function(_AddToFavourite value)? addToFavourite,
@@ -73,7 +68,6 @@ mixin _$FavouriteProductsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
     TResult Function(_LoadSavedFavouriteProducts value)?
         loadSavedFavouriteProducts,
     TResult Function(_AddToFavourite value)? addToFavourite,
@@ -100,140 +94,6 @@ class _$FavouriteProductsEventCopyWithImpl<$Res>
   final FavouriteProductsEvent _value;
   // ignore: unused_field
   final $Res Function(FavouriteProductsEvent) _then;
-}
-
-/// @nodoc
-abstract class _$$_GetFavouriteProductsCopyWith<$Res> {
-  factory _$$_GetFavouriteProductsCopyWith(_$_GetFavouriteProducts value,
-          $Res Function(_$_GetFavouriteProducts) then) =
-      __$$_GetFavouriteProductsCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_GetFavouriteProductsCopyWithImpl<$Res>
-    extends _$FavouriteProductsEventCopyWithImpl<$Res>
-    implements _$$_GetFavouriteProductsCopyWith<$Res> {
-  __$$_GetFavouriteProductsCopyWithImpl(_$_GetFavouriteProducts _value,
-      $Res Function(_$_GetFavouriteProducts) _then)
-      : super(_value, (v) => _then(v as _$_GetFavouriteProducts));
-
-  @override
-  _$_GetFavouriteProducts get _value => super._value as _$_GetFavouriteProducts;
-}
-
-/// @nodoc
-
-class _$_GetFavouriteProducts implements _GetFavouriteProducts {
-  const _$_GetFavouriteProducts();
-
-  @override
-  String toString() {
-    return 'FavouriteProductsEvent.getFavouriteProducts()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetFavouriteProducts);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getFavouriteProducts,
-    required TResult Function() loadSavedFavouriteProducts,
-    required TResult Function(Product product) addToFavourite,
-    required TResult Function(Product product) removeFromFavourite,
-    required TResult Function() clearFavouriteProducts,
-    required TResult Function() saveFavouriteProducts,
-  }) {
-    return getFavouriteProducts();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
-    TResult Function()? loadSavedFavouriteProducts,
-    TResult Function(Product product)? addToFavourite,
-    TResult Function(Product product)? removeFromFavourite,
-    TResult Function()? clearFavouriteProducts,
-    TResult Function()? saveFavouriteProducts,
-  }) {
-    return getFavouriteProducts?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
-    TResult Function()? loadSavedFavouriteProducts,
-    TResult Function(Product product)? addToFavourite,
-    TResult Function(Product product)? removeFromFavourite,
-    TResult Function()? clearFavouriteProducts,
-    TResult Function()? saveFavouriteProducts,
-    required TResult orElse(),
-  }) {
-    if (getFavouriteProducts != null) {
-      return getFavouriteProducts();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetFavouriteProducts value) getFavouriteProducts,
-    required TResult Function(_LoadSavedFavouriteProducts value)
-        loadSavedFavouriteProducts,
-    required TResult Function(_AddToFavourite value) addToFavourite,
-    required TResult Function(_RemoveFromFavourite value) removeFromFavourite,
-    required TResult Function(_ClearFavouriteProducts value)
-        clearFavouriteProducts,
-    required TResult Function(_SaveFavouriteProducts value)
-        saveFavouriteProducts,
-  }) {
-    return getFavouriteProducts(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
-    TResult Function(_LoadSavedFavouriteProducts value)?
-        loadSavedFavouriteProducts,
-    TResult Function(_AddToFavourite value)? addToFavourite,
-    TResult Function(_RemoveFromFavourite value)? removeFromFavourite,
-    TResult Function(_ClearFavouriteProducts value)? clearFavouriteProducts,
-    TResult Function(_SaveFavouriteProducts value)? saveFavouriteProducts,
-  }) {
-    return getFavouriteProducts?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
-    TResult Function(_LoadSavedFavouriteProducts value)?
-        loadSavedFavouriteProducts,
-    TResult Function(_AddToFavourite value)? addToFavourite,
-    TResult Function(_RemoveFromFavourite value)? removeFromFavourite,
-    TResult Function(_ClearFavouriteProducts value)? clearFavouriteProducts,
-    TResult Function(_SaveFavouriteProducts value)? saveFavouriteProducts,
-    required TResult orElse(),
-  }) {
-    if (getFavouriteProducts != null) {
-      return getFavouriteProducts(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _GetFavouriteProducts implements FavouriteProductsEvent {
-  const factory _GetFavouriteProducts() = _$_GetFavouriteProducts;
 }
 
 /// @nodoc
@@ -281,7 +141,6 @@ class _$_LoadSavedFavouriteProducts implements _LoadSavedFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getFavouriteProducts,
     required TResult Function() loadSavedFavouriteProducts,
     required TResult Function(Product product) addToFavourite,
     required TResult Function(Product product) removeFromFavourite,
@@ -294,7 +153,6 @@ class _$_LoadSavedFavouriteProducts implements _LoadSavedFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
     TResult Function()? loadSavedFavouriteProducts,
     TResult Function(Product product)? addToFavourite,
     TResult Function(Product product)? removeFromFavourite,
@@ -307,7 +165,6 @@ class _$_LoadSavedFavouriteProducts implements _LoadSavedFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
     TResult Function()? loadSavedFavouriteProducts,
     TResult Function(Product product)? addToFavourite,
     TResult Function(Product product)? removeFromFavourite,
@@ -324,7 +181,6 @@ class _$_LoadSavedFavouriteProducts implements _LoadSavedFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetFavouriteProducts value) getFavouriteProducts,
     required TResult Function(_LoadSavedFavouriteProducts value)
         loadSavedFavouriteProducts,
     required TResult Function(_AddToFavourite value) addToFavourite,
@@ -340,7 +196,6 @@ class _$_LoadSavedFavouriteProducts implements _LoadSavedFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
     TResult Function(_LoadSavedFavouriteProducts value)?
         loadSavedFavouriteProducts,
     TResult Function(_AddToFavourite value)? addToFavourite,
@@ -354,7 +209,6 @@ class _$_LoadSavedFavouriteProducts implements _LoadSavedFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
     TResult Function(_LoadSavedFavouriteProducts value)?
         loadSavedFavouriteProducts,
     TResult Function(_AddToFavourite value)? addToFavourite,
@@ -448,7 +302,6 @@ class _$_AddToFavourite implements _AddToFavourite {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getFavouriteProducts,
     required TResult Function() loadSavedFavouriteProducts,
     required TResult Function(Product product) addToFavourite,
     required TResult Function(Product product) removeFromFavourite,
@@ -461,7 +314,6 @@ class _$_AddToFavourite implements _AddToFavourite {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
     TResult Function()? loadSavedFavouriteProducts,
     TResult Function(Product product)? addToFavourite,
     TResult Function(Product product)? removeFromFavourite,
@@ -474,7 +326,6 @@ class _$_AddToFavourite implements _AddToFavourite {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
     TResult Function()? loadSavedFavouriteProducts,
     TResult Function(Product product)? addToFavourite,
     TResult Function(Product product)? removeFromFavourite,
@@ -491,7 +342,6 @@ class _$_AddToFavourite implements _AddToFavourite {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetFavouriteProducts value) getFavouriteProducts,
     required TResult Function(_LoadSavedFavouriteProducts value)
         loadSavedFavouriteProducts,
     required TResult Function(_AddToFavourite value) addToFavourite,
@@ -507,7 +357,6 @@ class _$_AddToFavourite implements _AddToFavourite {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
     TResult Function(_LoadSavedFavouriteProducts value)?
         loadSavedFavouriteProducts,
     TResult Function(_AddToFavourite value)? addToFavourite,
@@ -521,7 +370,6 @@ class _$_AddToFavourite implements _AddToFavourite {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
     TResult Function(_LoadSavedFavouriteProducts value)?
         loadSavedFavouriteProducts,
     TResult Function(_AddToFavourite value)? addToFavourite,
@@ -622,7 +470,6 @@ class _$_RemoveFromFavourite implements _RemoveFromFavourite {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getFavouriteProducts,
     required TResult Function() loadSavedFavouriteProducts,
     required TResult Function(Product product) addToFavourite,
     required TResult Function(Product product) removeFromFavourite,
@@ -635,7 +482,6 @@ class _$_RemoveFromFavourite implements _RemoveFromFavourite {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
     TResult Function()? loadSavedFavouriteProducts,
     TResult Function(Product product)? addToFavourite,
     TResult Function(Product product)? removeFromFavourite,
@@ -648,7 +494,6 @@ class _$_RemoveFromFavourite implements _RemoveFromFavourite {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
     TResult Function()? loadSavedFavouriteProducts,
     TResult Function(Product product)? addToFavourite,
     TResult Function(Product product)? removeFromFavourite,
@@ -665,7 +510,6 @@ class _$_RemoveFromFavourite implements _RemoveFromFavourite {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetFavouriteProducts value) getFavouriteProducts,
     required TResult Function(_LoadSavedFavouriteProducts value)
         loadSavedFavouriteProducts,
     required TResult Function(_AddToFavourite value) addToFavourite,
@@ -681,7 +525,6 @@ class _$_RemoveFromFavourite implements _RemoveFromFavourite {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
     TResult Function(_LoadSavedFavouriteProducts value)?
         loadSavedFavouriteProducts,
     TResult Function(_AddToFavourite value)? addToFavourite,
@@ -695,7 +538,6 @@ class _$_RemoveFromFavourite implements _RemoveFromFavourite {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
     TResult Function(_LoadSavedFavouriteProducts value)?
         loadSavedFavouriteProducts,
     TResult Function(_AddToFavourite value)? addToFavourite,
@@ -764,7 +606,6 @@ class _$_ClearFavouriteProducts implements _ClearFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getFavouriteProducts,
     required TResult Function() loadSavedFavouriteProducts,
     required TResult Function(Product product) addToFavourite,
     required TResult Function(Product product) removeFromFavourite,
@@ -777,7 +618,6 @@ class _$_ClearFavouriteProducts implements _ClearFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
     TResult Function()? loadSavedFavouriteProducts,
     TResult Function(Product product)? addToFavourite,
     TResult Function(Product product)? removeFromFavourite,
@@ -790,7 +630,6 @@ class _$_ClearFavouriteProducts implements _ClearFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
     TResult Function()? loadSavedFavouriteProducts,
     TResult Function(Product product)? addToFavourite,
     TResult Function(Product product)? removeFromFavourite,
@@ -807,7 +646,6 @@ class _$_ClearFavouriteProducts implements _ClearFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetFavouriteProducts value) getFavouriteProducts,
     required TResult Function(_LoadSavedFavouriteProducts value)
         loadSavedFavouriteProducts,
     required TResult Function(_AddToFavourite value) addToFavourite,
@@ -823,7 +661,6 @@ class _$_ClearFavouriteProducts implements _ClearFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
     TResult Function(_LoadSavedFavouriteProducts value)?
         loadSavedFavouriteProducts,
     TResult Function(_AddToFavourite value)? addToFavourite,
@@ -837,7 +674,6 @@ class _$_ClearFavouriteProducts implements _ClearFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
     TResult Function(_LoadSavedFavouriteProducts value)?
         loadSavedFavouriteProducts,
     TResult Function(_AddToFavourite value)? addToFavourite,
@@ -899,7 +735,6 @@ class _$_SaveFavouriteProducts implements _SaveFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getFavouriteProducts,
     required TResult Function() loadSavedFavouriteProducts,
     required TResult Function(Product product) addToFavourite,
     required TResult Function(Product product) removeFromFavourite,
@@ -912,7 +747,6 @@ class _$_SaveFavouriteProducts implements _SaveFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
     TResult Function()? loadSavedFavouriteProducts,
     TResult Function(Product product)? addToFavourite,
     TResult Function(Product product)? removeFromFavourite,
@@ -925,7 +759,6 @@ class _$_SaveFavouriteProducts implements _SaveFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getFavouriteProducts,
     TResult Function()? loadSavedFavouriteProducts,
     TResult Function(Product product)? addToFavourite,
     TResult Function(Product product)? removeFromFavourite,
@@ -942,7 +775,6 @@ class _$_SaveFavouriteProducts implements _SaveFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetFavouriteProducts value) getFavouriteProducts,
     required TResult Function(_LoadSavedFavouriteProducts value)
         loadSavedFavouriteProducts,
     required TResult Function(_AddToFavourite value) addToFavourite,
@@ -958,7 +790,6 @@ class _$_SaveFavouriteProducts implements _SaveFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
     TResult Function(_LoadSavedFavouriteProducts value)?
         loadSavedFavouriteProducts,
     TResult Function(_AddToFavourite value)? addToFavourite,
@@ -972,7 +803,6 @@ class _$_SaveFavouriteProducts implements _SaveFavouriteProducts {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetFavouriteProducts value)? getFavouriteProducts,
     TResult Function(_LoadSavedFavouriteProducts value)?
         loadSavedFavouriteProducts,
     TResult Function(_AddToFavourite value)? addToFavourite,

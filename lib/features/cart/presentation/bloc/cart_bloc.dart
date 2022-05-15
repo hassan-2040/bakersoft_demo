@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 import 'dart:async';
+import 'package:bakersoft_demo/core/utilities/constants.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/add_to_cart.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/clear_cart.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_cart_items.dart';
@@ -48,6 +49,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       product: event.product,
       quantity: event.quantity,
     );
+    printInfo('emitting add to cart success state');
     emit(const _AddToCartSuccess());
     emit(_Initial(
       cartItems: getCartItems(),

@@ -2,9 +2,11 @@ import 'package:bakersoft_demo/core/common_widgets/custom_opacity_animation.dart
 import 'package:bakersoft_demo/core/common_widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';
+import 'package:bakersoft_demo/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/widgets/toggle_favourite_button.dart';
 import 'package:bakersoft_demo/features/products_list/domain/models/product.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FavouriteProductsItemWidget extends StatelessWidget {
   final Product product;
@@ -78,7 +80,10 @@ class FavouriteProductsItemWidget extends StatelessWidget {
               color: Colors.transparent,
               child: IconButton(
                 onPressed: () {
-                  //TODO add to cart
+                  BlocProvider.of<CartBloc>(context).add(CartEvent.addToCart(
+                    product: product,
+                    quantity: 1,
+                  ));
                 },
                 icon: const Icon(
                   Icons.add_shopping_cart,

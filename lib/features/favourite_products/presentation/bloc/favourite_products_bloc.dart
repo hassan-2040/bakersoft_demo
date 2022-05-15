@@ -36,7 +36,6 @@ class FavouriteProductsBloc
     required this.saveFavouriteProducts,
   }) : super(const _Loading()) {
     on<_LoadSavedFavouriteProducts>(on_LoadSavedFavouriteProducts);
-    on<_GetFavouriteProducts>(on_GetFavouriteProducts);
     on<_AddToFavourite>(on_AddToFavourite);
     on<_RemoveFromFavourite>(on_RemoveFromFavourite);
     on<_ClearFavouriteProducts>(on_ClearFavouriteProducts);
@@ -54,14 +53,6 @@ class FavouriteProductsBloc
     } catch (_error) {
       emit(_Failure(customErrorResponses(_error)));
     }
-  }
-
-  //TODO remove this function as its not being used anywhere
-  void on_GetFavouriteProducts(event, emit) async {
-    emit(_Success(
-      favouriteProducts: getFavouriteProducts(),
-      stateId: _getStateId(),
-    ));
   }
 
   void on_AddToFavourite(event, emit) {

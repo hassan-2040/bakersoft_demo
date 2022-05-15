@@ -798,7 +798,6 @@ mixin _$CartState {
             int cartItemsCount, double totalPrice, Map<Product, int> cartItems)
         initial,
     required TResult Function() addToCartSuccess,
-    required TResult Function() removeFromCartSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -807,7 +806,6 @@ mixin _$CartState {
             int cartItemsCount, double totalPrice, Map<Product, int> cartItems)?
         initial,
     TResult Function()? addToCartSuccess,
-    TResult Function()? removeFromCartSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -816,7 +814,6 @@ mixin _$CartState {
             int cartItemsCount, double totalPrice, Map<Product, int> cartItems)?
         initial,
     TResult Function()? addToCartSuccess,
-    TResult Function()? removeFromCartSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -824,22 +821,18 @@ mixin _$CartState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddToCartSuccess value) addToCartSuccess,
-    required TResult Function(_RemoveFromCartSuccess value)
-        removeFromCartSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_AddToCartSuccess value)? addToCartSuccess,
-    TResult Function(_RemoveFromCartSuccess value)? removeFromCartSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_AddToCartSuccess value)? addToCartSuccess,
-    TResult Function(_RemoveFromCartSuccess value)? removeFromCartSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -961,7 +954,6 @@ class _$_Initial implements _Initial {
             int cartItemsCount, double totalPrice, Map<Product, int> cartItems)
         initial,
     required TResult Function() addToCartSuccess,
-    required TResult Function() removeFromCartSuccess,
   }) {
     return initial(cartItemsCount, totalPrice, cartItems);
   }
@@ -973,7 +965,6 @@ class _$_Initial implements _Initial {
             int cartItemsCount, double totalPrice, Map<Product, int> cartItems)?
         initial,
     TResult Function()? addToCartSuccess,
-    TResult Function()? removeFromCartSuccess,
   }) {
     return initial?.call(cartItemsCount, totalPrice, cartItems);
   }
@@ -985,7 +976,6 @@ class _$_Initial implements _Initial {
             int cartItemsCount, double totalPrice, Map<Product, int> cartItems)?
         initial,
     TResult Function()? addToCartSuccess,
-    TResult Function()? removeFromCartSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -999,8 +989,6 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddToCartSuccess value) addToCartSuccess,
-    required TResult Function(_RemoveFromCartSuccess value)
-        removeFromCartSuccess,
   }) {
     return initial(this);
   }
@@ -1010,7 +998,6 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_AddToCartSuccess value)? addToCartSuccess,
-    TResult Function(_RemoveFromCartSuccess value)? removeFromCartSuccess,
   }) {
     return initial?.call(this);
   }
@@ -1020,7 +1007,6 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_AddToCartSuccess value)? addToCartSuccess,
-    TResult Function(_RemoveFromCartSuccess value)? removeFromCartSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1089,7 +1075,6 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
             int cartItemsCount, double totalPrice, Map<Product, int> cartItems)
         initial,
     required TResult Function() addToCartSuccess,
-    required TResult Function() removeFromCartSuccess,
   }) {
     return addToCartSuccess();
   }
@@ -1101,7 +1086,6 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
             int cartItemsCount, double totalPrice, Map<Product, int> cartItems)?
         initial,
     TResult Function()? addToCartSuccess,
-    TResult Function()? removeFromCartSuccess,
   }) {
     return addToCartSuccess?.call();
   }
@@ -1113,7 +1097,6 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
             int cartItemsCount, double totalPrice, Map<Product, int> cartItems)?
         initial,
     TResult Function()? addToCartSuccess,
-    TResult Function()? removeFromCartSuccess,
     required TResult orElse(),
   }) {
     if (addToCartSuccess != null) {
@@ -1127,8 +1110,6 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddToCartSuccess value) addToCartSuccess,
-    required TResult Function(_RemoveFromCartSuccess value)
-        removeFromCartSuccess,
   }) {
     return addToCartSuccess(this);
   }
@@ -1138,7 +1119,6 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_AddToCartSuccess value)? addToCartSuccess,
-    TResult Function(_RemoveFromCartSuccess value)? removeFromCartSuccess,
   }) {
     return addToCartSuccess?.call(this);
   }
@@ -1148,7 +1128,6 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_AddToCartSuccess value)? addToCartSuccess,
-    TResult Function(_RemoveFromCartSuccess value)? removeFromCartSuccess,
     required TResult orElse(),
   }) {
     if (addToCartSuccess != null) {
@@ -1160,123 +1139,4 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
 
 abstract class _AddToCartSuccess implements CartState {
   const factory _AddToCartSuccess() = _$_AddToCartSuccess;
-}
-
-/// @nodoc
-abstract class _$$_RemoveFromCartSuccessCopyWith<$Res> {
-  factory _$$_RemoveFromCartSuccessCopyWith(_$_RemoveFromCartSuccess value,
-          $Res Function(_$_RemoveFromCartSuccess) then) =
-      __$$_RemoveFromCartSuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_RemoveFromCartSuccessCopyWithImpl<$Res>
-    extends _$CartStateCopyWithImpl<$Res>
-    implements _$$_RemoveFromCartSuccessCopyWith<$Res> {
-  __$$_RemoveFromCartSuccessCopyWithImpl(_$_RemoveFromCartSuccess _value,
-      $Res Function(_$_RemoveFromCartSuccess) _then)
-      : super(_value, (v) => _then(v as _$_RemoveFromCartSuccess));
-
-  @override
-  _$_RemoveFromCartSuccess get _value =>
-      super._value as _$_RemoveFromCartSuccess;
-}
-
-/// @nodoc
-
-class _$_RemoveFromCartSuccess implements _RemoveFromCartSuccess {
-  const _$_RemoveFromCartSuccess();
-
-  @override
-  String toString() {
-    return 'CartState.removeFromCartSuccess()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_RemoveFromCartSuccess);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int cartItemsCount, double totalPrice, Map<Product, int> cartItems)
-        initial,
-    required TResult Function() addToCartSuccess,
-    required TResult Function() removeFromCartSuccess,
-  }) {
-    return removeFromCartSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            int cartItemsCount, double totalPrice, Map<Product, int> cartItems)?
-        initial,
-    TResult Function()? addToCartSuccess,
-    TResult Function()? removeFromCartSuccess,
-  }) {
-    return removeFromCartSuccess?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            int cartItemsCount, double totalPrice, Map<Product, int> cartItems)?
-        initial,
-    TResult Function()? addToCartSuccess,
-    TResult Function()? removeFromCartSuccess,
-    required TResult orElse(),
-  }) {
-    if (removeFromCartSuccess != null) {
-      return removeFromCartSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_AddToCartSuccess value) addToCartSuccess,
-    required TResult Function(_RemoveFromCartSuccess value)
-        removeFromCartSuccess,
-  }) {
-    return removeFromCartSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AddToCartSuccess value)? addToCartSuccess,
-    TResult Function(_RemoveFromCartSuccess value)? removeFromCartSuccess,
-  }) {
-    return removeFromCartSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AddToCartSuccess value)? addToCartSuccess,
-    TResult Function(_RemoveFromCartSuccess value)? removeFromCartSuccess,
-    required TResult orElse(),
-  }) {
-    if (removeFromCartSuccess != null) {
-      return removeFromCartSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RemoveFromCartSuccess implements CartState {
-  const factory _RemoveFromCartSuccess() = _$_RemoveFromCartSuccess;
 }
