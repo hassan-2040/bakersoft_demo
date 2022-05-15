@@ -1,4 +1,4 @@
-import 'package:bakersoft_demo/core/common_widgets/multi_provider_widget.dart';
+import 'package:bakersoft_demo/multi_provider_widget.dart';
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
 import 'package:flutter/material.dart';
 
