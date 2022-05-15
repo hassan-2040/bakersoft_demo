@@ -4,7 +4,7 @@ import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/repositories/favourite_products_repository.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/check_is_favourite.dart';
-import 'package:bakersoft_demo/features/favourite_products/presentation/widgets/favourite_button.dart';
+import 'package:bakersoft_demo/features/favourite_products/presentation/widgets/toggle_favourite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -47,7 +47,7 @@ class ProductCardWidget extends StatelessWidget {
                     Positioned(
                       top: 0,
                       right: 0,
-                      child: FavouriteButton(
+                      child: ToggleFavouriteButton(
                         product: product,
                         checkIsFavourite: CheckIsFavourite(favouriteProductsRepository: RepositoryProvider.of<FavouriteProductsRepository>(context)),
                       ),

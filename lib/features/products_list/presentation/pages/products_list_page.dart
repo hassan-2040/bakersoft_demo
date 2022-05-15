@@ -1,7 +1,7 @@
-
 import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
 import 'package:bakersoft_demo/core/common_widgets/cart_icon_button.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
+import 'package:bakersoft_demo/core/utilities/app_router.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/repositories/favourite_products_repository.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/save_favourite_products.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
@@ -19,7 +19,8 @@ class ProductsListPage extends StatefulWidget {
   State<ProductsListPage> createState() => _ProductsListPageState();
 }
 
-class _ProductsListPageState extends State<ProductsListPage> with WidgetsBindingObserver {
+class _ProductsListPageState extends State<ProductsListPage>
+    with WidgetsBindingObserver {
   late ScrollController _scrollController;
   @override
   void initState() {
@@ -35,7 +36,7 @@ class _ProductsListPageState extends State<ProductsListPage> with WidgetsBinding
     _scrollController
       ..removeListener(_scrollListener)
       ..dispose();
-      WidgetsBinding.instance?.removeObserver(this);
+    WidgetsBinding.instance?.removeObserver(this);
     super.dispose();
   }
 
@@ -121,6 +122,15 @@ class _ProductsListPageState extends State<ProductsListPage> with WidgetsBinding
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(AppRouter.favouriteProductsPageRoute);
+        },
+        child: const Icon(
+          Icons.favorite,
+          color: Colors.red,
+        ),
       ),
     );
   }
