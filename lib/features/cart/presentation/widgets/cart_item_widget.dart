@@ -1,4 +1,4 @@
-
+import 'package:bakersoft_demo/core/common_widgets/custom_opacity_animation.dart';
 import 'package:bakersoft_demo/core/common_widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';
@@ -25,13 +25,21 @@ class CartItemWidget extends StatelessWidget {
           const SizedBox(
             width: 10,
           ),
-          SizedBox(
-            width: AppConfig.screenWidth * 0.2,
+          Expanded(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(5),
               child: ImageLoader(
                 imageUrl: product.imageUrl,
-                placeHolderHeight: AppConfig.screenHeight * 0.2,
+                height: 60,
+                placholder: CustomOpacityAnimation(
+                  child: Container(
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -39,6 +47,7 @@ class CartItemWidget extends StatelessWidget {
             width: 5,
           ),
           Expanded(
+            flex: 2,
             child: Text(
               product.name,
               overflow: TextOverflow.ellipsis,

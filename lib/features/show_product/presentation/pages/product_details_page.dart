@@ -1,5 +1,6 @@
 
 import 'package:bakersoft_demo/core/common_widgets/cart_icon_button.dart';
+import 'package:bakersoft_demo/core/common_widgets/custom_opacity_animation.dart';
 import 'package:bakersoft_demo/core/common_widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';
@@ -49,7 +50,13 @@ class ProductDetailsPage extends StatelessWidget {
                     ImageLoader(
                       imageUrl: product.imageUrl,
                       height: AppConfig.screenHeight * 0.5,
-                      placeHolderHeight: AppConfig.screenHeight * 0.5,
+                      placholder: CustomOpacityAnimation(
+                        child: Container(
+                          height: AppConfig.screenHeight * 0.5,
+                          width: double.infinity,
+                          color: Colors.grey,
+                        ),
+                      ),
                     ),
                     Align(
                       alignment: Alignment.topRight,

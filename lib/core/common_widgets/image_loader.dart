@@ -1,14 +1,17 @@
-
 import 'package:bakersoft_demo/core/common_widgets/custom_opacity_animation.dart';
 import 'package:flutter/material.dart';
 
 class ImageLoader extends StatelessWidget {
   final String imageUrl;
   final double? height;
-  final double placeHolderHeight;
+  final Widget placholder;
   const ImageLoader({
     required this.imageUrl,
-    required this.placeHolderHeight,
+    this.placholder = const Center(
+      child: SizedBox(
+        child: CircularProgressIndicator(),
+      ),
+    ),
     this.height,
     Key? key,
   }) : super(key: key);
@@ -45,16 +48,7 @@ class ImageLoader extends StatelessWidget {
                     1)) {
           return image;
         }
-        return CustomOpacityAnimation(
-          child: Container(
-            height: placeHolderHeight,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-        );
+        return placholder;
       },
       errorBuilder:
           (BuildContext context, Object exception, StackTrace? stackTrace) {

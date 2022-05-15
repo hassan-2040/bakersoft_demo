@@ -1,11 +1,10 @@
-
+import 'package:bakersoft_demo/core/common_widgets/custom_opacity_animation.dart';
 import 'package:bakersoft_demo/core/common_widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/widgets/toggle_favourite_button.dart';
 import 'package:bakersoft_demo/features/products_list/domain/models/product.dart';
 import 'package:flutter/material.dart';
-
 
 class FavouriteProductsItemWidget extends StatelessWidget {
   final Product product;
@@ -23,13 +22,21 @@ class FavouriteProductsItemWidget extends StatelessWidget {
           const SizedBox(
             width: 10,
           ),
-          SizedBox(
-            width: AppConfig.screenWidth * 0.2,
+          Expanded(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(5),
               child: ImageLoader(
                 imageUrl: product.imageUrl,
-                placeHolderHeight: AppConfig.screenHeight * 0.2,
+                height: 60,
+                placholder: CustomOpacityAnimation(
+                  child: Container(
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -37,6 +44,7 @@ class FavouriteProductsItemWidget extends StatelessWidget {
             width: 5,
           ),
           Expanded(
+            flex: 2,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

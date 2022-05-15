@@ -1,4 +1,5 @@
 
+import 'package:bakersoft_demo/core/common_widgets/custom_opacity_animation.dart';
 import 'package:bakersoft_demo/core/common_widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
@@ -39,7 +40,19 @@ class ProductCardWidget extends StatelessWidget {
                       ),
                       child: ImageLoader(
                         imageUrl: product.imageUrl,
-                        placeHolderHeight: AppConfig.screenHeight * 0.3,
+                        placholder: CustomOpacityAnimation(
+                          child: Container(
+                            height: AppConfig.screenHeight * 0.3,
+                            width: double.infinity,
+                            decoration: const BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius:  BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     Positioned(
