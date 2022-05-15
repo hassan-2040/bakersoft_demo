@@ -44,7 +44,7 @@ class MultiProviderWidget extends StatelessWidget {
       providers: [
         RepositoryProvider<ProductsRepository>(
           create: (context) => ProductsRepository(
-            localDataSource: ProductsLocalDataSource(),
+            productsLocalDataSource: ProductsLocalDataSource(),
           ),
         ),
         RepositoryProvider<CartRepository>(
