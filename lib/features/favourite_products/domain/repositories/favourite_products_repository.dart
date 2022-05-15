@@ -10,15 +10,23 @@ class FavouriteProductsRepository {
 
   List<Product> _favouriteProducts = [];
 
+  List<Product> get favouriteProducts => _favouriteProducts;
+
   void addToFavourite(Product product) {
     _favouriteProducts.add(product);
+    print('adding length ${_favouriteProducts.length}');
   }
 
-  void removeFromFavourite(Product product) {
+  Future<void> removeFromFavourite(Product product) async {
     _favouriteProducts.remove(product);
+    if (_favouriteProducts.isEmpty) {
+      await favouriteProductsLocalDataSource.clearFavouriteProducts();
+    }
+    print('removing length ${_favouriteProducts.length}');
   }
 
   bool checkIsFavourite(Product product) {
+    print('checking favourite, ${_favouriteProducts.length}');
     return _favouriteProducts.contains(product);
   }
 
@@ -31,11 +39,10 @@ class FavouriteProductsRepository {
     }
   }
 
-  Future<List<Product>> getFavouriteProducts() async {
+  Future<void> loadSavedFavouriteProducts() async {
     try {
       _favouriteProducts = await favouriteProductsLocalDataSource
           .getFavouriteProductsFromLocalStrage();
-      return _favouriteProducts;
     } catch (_) {
       rethrow;
     }

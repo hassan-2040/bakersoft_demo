@@ -6,5 +6,7 @@ class RemoveFromFavourite {
 
   RemoveFromFavourite({ required this.favouriteProductsRepository,});
 
-  void call(Product product) => favouriteProductsRepository.removeFromFavourite(product);
+  Future<void> call(Product product) async {
+    await favouriteProductsRepository.removeFromFavourite(product);
+  }
 }

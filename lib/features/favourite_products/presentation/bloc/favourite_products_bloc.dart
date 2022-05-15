@@ -5,6 +5,7 @@ import 'package:bakersoft_demo/core/error/custom_error_responses.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/add_product_to_favourite.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/clear_favourite_products.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/get_favourite_products.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/load_saved_favourite_products.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/remove_from_favourite.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/save_favourite_products.dart';
 import 'package:bloc/bloc.dart';
@@ -14,9 +15,11 @@ part 'favourite_products_event.dart';
 part 'favourite_products_state.dart';
 part 'favourite_products_bloc.freezed.dart';
 
+//TODO remove print statements everyhwere
 class FavouriteProductsBloc
     extends Bloc<FavouriteProductsEvent, FavouriteProductsState> {
   final AddProductToFavourite addProductToFavourite;
+  final LoadSavedFavouriteProducts loadSavedFavouriteProducts;
   final ClearFavouriteProducts clearFavouriteProducts;
   final GetFavouriteProducts getFavouriteProducts;
   final RemoveFromFavourite removeFromFavourite;
@@ -24,36 +27,42 @@ class FavouriteProductsBloc
 
   FavouriteProductsBloc({
     required this.addProductToFavourite,
+    required this.loadSavedFavouriteProducts,
     required this.clearFavouriteProducts,
     required this.getFavouriteProducts,
     required this.removeFromFavourite,
     required this.saveFavouriteProducts,
-  }) : super(const _Initial()) {
-    on<_Get>(on_Get);
+  }) : super(const _Loading()) {
+    on<_LoadSavedFavouriteProducts>(on_LoadSavedFavouriteProducts);
+    on<_GetFavouriteProducts>(on_GetFavouriteProducts);
     on<_AddToFavourite>(on_AddToFavourite);
     on<_RemoveFromFavourite>(on_RemoveFromFavourite);
     on<_ClearFavouriteProducts>(on_ClearFavouriteProducts);
     on<_SaveFavouriteProducts>(on_SaveFavouriteProducts);
   }
 
-  void on_Get(event, emit) async {
+  void on_LoadSavedFavouriteProducts(event, emit) async {
     emit(const _Loading());
     try {
-      final products = await getFavouriteProducts();
-      emit(_Success(favouriteProducts: products));
+      await loadSavedFavouriteProducts();
+      emit(_Success(favouriteProducts: getFavouriteProducts()));
     } catch (_error) {
       emit(_Failure(customErrorResponses(_error)));
     }
   }
 
+  void on_GetFavouriteProducts(event, emit) async {
+    emit(_Success(favouriteProducts: getFavouriteProducts()));
+  }
+
   void on_AddToFavourite(event, emit) {
     addProductToFavourite(event.product);
-    emit(const _AddProductToFavouriteSuccess());
+    emit(_Success(favouriteProducts: getFavouriteProducts()));
   }
 
   void on_RemoveFromFavourite(event, emit) {
     removeFromFavourite(event.product);
-    emit(const _RemoveProductFromFavouriteSuccess());
+    emit(_Success(favouriteProducts: getFavouriteProducts()));
   }
 
   void on_ClearFavouriteProducts(event, emit) {

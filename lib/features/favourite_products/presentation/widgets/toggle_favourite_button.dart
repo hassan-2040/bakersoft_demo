@@ -33,12 +33,15 @@ class ToggleFavouriteButton extends StatelessWidget {
           },
           icon: BlocBuilder<FavouriteProductsBloc, FavouriteProductsState>(
             builder: (context, state) {
-              return checkIsFavourite(product)
-                  ? const Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                    )
-                  : const Icon(Icons.favorite_border);
+              Widget _view = const Icon(Icons.favorite_border);
+              state.whenOrNull(
+                success: (_products) {
+                  if (_products.contains(product)) {
+                    _view = const Icon(Icons.favorite, color: Colors.red,);
+                  }
+                },
+              );
+              return _view;
             },
           ),
         ),

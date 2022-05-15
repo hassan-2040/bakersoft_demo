@@ -13,6 +13,7 @@ import 'package:bakersoft_demo/features/favourite_products/domain/repositories/f
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/add_product_to_favourite.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/clear_favourite_products.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/get_favourite_products.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/load_saved_favourite_products.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/remove_from_favourite.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/save_favourite_products.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/bloc/favourite_products_bloc.dart';
@@ -116,6 +117,10 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider<FavouriteProductsBloc>(
             create: (context) => FavouriteProductsBloc(
+              loadSavedFavouriteProducts: LoadSavedFavouriteProducts(
+                favouriteProductsRepository:
+                    RepositoryProvider.of<FavouriteProductsRepository>(context),
+              ),
               addProductToFavourite: AddProductToFavourite(
                 favouriteProductsRepository:
                     RepositoryProvider.of<FavouriteProductsRepository>(context),
@@ -136,7 +141,7 @@ class MyApp extends StatelessWidget {
                 favouriteProductsRepository:
                     RepositoryProvider.of<FavouriteProductsRepository>(context),
               ),
-            )..add(const FavouriteProductsEvent.get()),
+            )..add(const FavouriteProductsEvent.loadSavedFavouriteProducts()),
           ),
         ],
         child: MaterialApp(
