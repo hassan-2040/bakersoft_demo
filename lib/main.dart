@@ -8,6 +8,9 @@ import 'package:bakersoft_demo/features/cart/domain/user_cases/clear_cart.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_cart_items.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_total_price.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/remove_from_cart.dart';
+import 'package:bakersoft_demo/features/favourite_products/data_sources/favourite_products_local_data_source.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/repositories/favourite_products_repository.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/save_favourite_products_to_storage.dart';
 import 'package:bakersoft_demo/features/products_list/domain/repositories/products_repository.dart';
 import 'package:bakersoft_demo/features/products_list/domain/use_cases/get_all_products.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
@@ -40,6 +43,11 @@ class MyApp extends StatelessWidget {
         RepositoryProvider<CartRepository>(
           create: (context) => CartRepository(
             localDataSource: CartLocalDataSource(),
+          ),
+        ),
+        RepositoryProvider<FavouriteProductsRepository>(
+          create: (context) => FavouriteProductsRepository(
+            favouriteProductsLocalDataSource: FavouriteProductsLocalDataSource(),
           ),
         ),
         RepositoryProvider<ProductDetailsRepository>(

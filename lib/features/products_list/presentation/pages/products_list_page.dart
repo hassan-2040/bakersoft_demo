@@ -2,6 +2,8 @@
 import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
 import 'package:bakersoft_demo/core/common_widgets/cart_icon_button.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/repositories/favourite_products_repository.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/save_favourite_products_to_storage.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/widgets/products_list_failure_widget.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/widgets/grid_item_loading_widget.dart';
@@ -17,12 +19,14 @@ class ProductsListPage extends StatefulWidget {
   State<ProductsListPage> createState() => _ProductsListPageState();
 }
 
-class _ProductsListPageState extends State<ProductsListPage> {
+class _ProductsListPageState extends State<ProductsListPage> with WidgetsBindingObserver {
   late ScrollController _scrollController;
   @override
   void initState() {
     _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
+
+    WidgetsBinding.instance?.addObserver(this);
     super.initState();
   }
 
@@ -31,7 +35,20 @@ class _ProductsListPageState extends State<ProductsListPage> {
     _scrollController
       ..removeListener(_scrollListener)
       ..dispose();
+      WidgetsBinding.instance?.removeObserver(this);
     super.dispose();
+  }
+
+  //TODO handle this in bloc
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) {
+      final _temp = SaveFavouriteProductsToStorage(
+          favouriteProductsRepository:
+              RepositoryProvider.of<FavouriteProductsRepository>(context));
+      _temp();
+    }
+    super.didChangeAppLifecycleState(state);
   }
 
   _scrollListener() {

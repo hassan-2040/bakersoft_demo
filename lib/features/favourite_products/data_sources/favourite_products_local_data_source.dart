@@ -3,14 +3,17 @@ import 'dart:convert';
 import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class FavouriteProductsDataSource {
+class FavouriteProductsLocalDataSource {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   Future<void> saveFavouriteProductsToLocalStrage(
-      List<Product> _favouriteProducts,) async {
+    List<Product> _favouriteProducts,
+  ) async {
+    print('saving');
     try {
       final _p = await _prefs;
-      _p.setString('favouriteProducts', json.encode(_toJson(_favouriteProducts)));
+      _p.setString(
+          'favouriteProducts', json.encode(_toJson(_favouriteProducts)));
     } catch (_) {
       rethrow;
     }
@@ -47,7 +50,7 @@ class FavouriteProductsDataSource {
   }
 
   List<Product> _fromJson(List<dynamic> _json) {
-    final List<Product>  _list = [];
+    final List<Product> _list = [];
     for (var _p in _json) {
       _list.add(Product.fromJson(_p));
     }

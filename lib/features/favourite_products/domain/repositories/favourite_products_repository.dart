@@ -1,16 +1,14 @@
 import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
-import 'package:bakersoft_demo/features/favourite_products/data_sources/favourite_products_data_source.dart';
+import 'package:bakersoft_demo/features/favourite_products/data_sources/favourite_products_local_data_source.dart';
 
 class FavouriteProductsRepository {
-  final FavouriteProductsDataSource favouriteProductsDataSource;
+  final FavouriteProductsLocalDataSource favouriteProductsLocalDataSource;
 
   FavouriteProductsRepository({
-    required this.favouriteProductsDataSource,
+    required this.favouriteProductsLocalDataSource,
   });
 
   List<Product> _favouriteProducts = [];
-
-  List<Product> get favouriteProducts => _favouriteProducts;
 
   void addToFavourite(Product product) {
     _favouriteProducts.add(product);
@@ -27,7 +25,17 @@ class FavouriteProductsRepository {
   Future<void> clearFavouriteProducts() async {
     try {
       _favouriteProducts.clear();
-      await favouriteProductsDataSource.clearFavouriteProducts();
+      await favouriteProductsLocalDataSource.clearFavouriteProducts();
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  Future<List<Product>> getFavouriteProducts() async {
+    try {
+      _favouriteProducts = await favouriteProductsLocalDataSource
+          .getFavouriteProductsFromLocalStrage();
+      return _favouriteProducts;
     } catch (_) {
       rethrow;
     }
@@ -35,18 +43,9 @@ class FavouriteProductsRepository {
 
   Future<void> saveFavouriteProductsToLocalStrage() async {
     try {
-      await favouriteProductsDataSource.saveFavouriteProductsToLocalStrage(
+      await favouriteProductsLocalDataSource.saveFavouriteProductsToLocalStrage(
         _favouriteProducts,
       );
-    } catch (_) {
-      rethrow;
-    }
-  }
-
-  Future<void> getFavouriteProductsFromLocalStrage() async {
-    try {
-      _favouriteProducts = await favouriteProductsDataSource
-          .getFavouriteProductsFromLocalStrage();
     } catch (_) {
       rethrow;
     }

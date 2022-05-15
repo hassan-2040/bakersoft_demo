@@ -1,15 +1,16 @@
+import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/repositories/favourite_products_repository.dart';
 
-class GetFavouriteProductsFromStorage {
+class GetFavouriteProducts {
   final FavouriteProductsRepository favouriteProductsRepository;
 
-  GetFavouriteProductsFromStorage({
+  GetFavouriteProducts({
     required this.favouriteProductsRepository,
   });
 
-  Future<void> call() async {
+  Future<List<Product>> call() async {
     try {
-      await favouriteProductsRepository.getFavouriteProductsFromLocalStrage();
+      return await favouriteProductsRepository.getFavouriteProducts();
     } catch (_) {
       rethrow;
     }
