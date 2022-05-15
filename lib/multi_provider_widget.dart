@@ -27,7 +27,7 @@ import 'package:bakersoft_demo/features/show_product/domain/use_cases/decrement_
 import 'package:bakersoft_demo/features/show_product/domain/use_cases/increment_quantity.dart';
 import 'package:bakersoft_demo/features/show_product/domain/use_cases/reset_quantity.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/bloc/product_details_bloc.dart';
-import 'package:bakersoft_demo/features/splash/bloc/splash_bloc.dart';
+import 'package:bakersoft_demo/features/splash/presentation/bloc/splash_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

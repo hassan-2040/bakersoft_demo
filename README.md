@@ -1,12 +1,35 @@
-# bakersoft_demo
+# BakerSoft Demo
 
-Demo Project for Bakersoft
+Demo Project for Bakersoft.
 
-## Getting Started
+## Overview
 
-This project is a starting point for a Flutter application.
+This is a shopping/marketplace app with cart and favourite products.
 
-A few resources to get you started if this is your first Flutter project:
+It has the following mandatory features:
+- View a list of products.
+- View details of a product. 
+- Add product to cart. 
+- Remove product from cart. 
+= View shopping cart.
+
+It has following optional features:
+- Mark a product as favourite. 
+- Remove a product from favourites.
+- View favourite products.
+
+## App Flow
+
+The products are stored in the assets/products.json file and are decoded to display as needed.
+
+The app follows a modular approach. Each feature has its own module and each module is separated into data sources, domain and presentation layers.
+
+### Splash Feature
+
+
+
+
+
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
