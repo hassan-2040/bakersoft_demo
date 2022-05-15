@@ -1,6 +1,5 @@
 import 'dart:convert';
-
-import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
+import 'package:bakersoft_demo/features/products_list/domain/models/product.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FavouriteProductsLocalDataSource {

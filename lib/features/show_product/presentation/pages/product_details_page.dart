@@ -1,10 +1,11 @@
-import 'package:bakersoft_demo/core/common_cart_features/presentation/bloc/cart_bloc.dart';
-import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
+
 import 'package:bakersoft_demo/core/common_widgets/cart_icon_button.dart';
 import 'package:bakersoft_demo/core/common_widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';
+import 'package:bakersoft_demo/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/widgets/toggle_favourite_button.dart';
+import 'package:bakersoft_demo/features/products_list/domain/models/product.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/bloc/product_details_bloc.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/widgets/nutritional_value_widget.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/widgets/quantity_button.dart';

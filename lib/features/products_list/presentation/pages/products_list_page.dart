@@ -1,10 +1,9 @@
-import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
+
 import 'package:bakersoft_demo/core/common_widgets/cart_icon_button.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
-import 'package:bakersoft_demo/features/favourite_products/domain/repositories/favourite_products_repository.dart';
-import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/save_favourite_products.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/bloc/favourite_products_bloc.dart';
+import 'package:bakersoft_demo/features/products_list/domain/models/product.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/widgets/products_list_failure_widget.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/widgets/grid_item_loading_widget.dart';

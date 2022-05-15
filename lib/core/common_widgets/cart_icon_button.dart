@@ -1,8 +1,8 @@
 
-import 'package:bakersoft_demo/core/common_cart_features/presentation/bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';
+import 'package:bakersoft_demo/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,7 +28,7 @@ class CartIconButton extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, AppRouter.cartPageRoute,);
                 },
-                icon: Icon(Icons.shopping_cart_outlined),
+                icon: const Icon(Icons.shopping_cart_outlined),
               ),
               Positioned(
                 top: 0,

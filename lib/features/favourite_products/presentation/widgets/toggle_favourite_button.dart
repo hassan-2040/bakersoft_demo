@@ -1,5 +1,6 @@
-import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
+
 import 'package:bakersoft_demo/features/favourite_products/presentation/bloc/favourite_products_bloc.dart';
+import 'package:bakersoft_demo/features/products_list/domain/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

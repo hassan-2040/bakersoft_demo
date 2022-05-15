@@ -1,12 +1,11 @@
 // ignore_for_file: non_constant_identifier_names
-
-import 'package:bakersoft_demo/core/common_cart_features/domain/use_cases/get_cart_items_count.dart';
-import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
 import 'package:bakersoft_demo/core/error/custom_error_responses.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/clear_cart.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_cart_items.dart';
+import 'package:bakersoft_demo/features/cart/domain/user_cases/get_cart_items_count.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_total_price.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/remove_from_cart.dart';
+import 'package:bakersoft_demo/features/products_list/domain/models/product.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

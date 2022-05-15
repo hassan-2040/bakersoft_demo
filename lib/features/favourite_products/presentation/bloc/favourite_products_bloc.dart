@@ -2,7 +2,6 @@
 
 import 'dart:math';
 
-import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
 import 'package:bakersoft_demo/core/error/custom_error_responses.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/add_product_to_favourite.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/clear_favourite_products.dart';
@@ -10,6 +9,7 @@ import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/get_
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/load_saved_favourite_products.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/remove_from_favourite.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/save_favourite_products.dart';
+import 'package:bakersoft_demo/features/products_list/domain/models/product.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

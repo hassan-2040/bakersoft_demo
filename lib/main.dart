@@ -1,13 +1,14 @@
-import 'package:bakersoft_demo/core/common_cart_features/domain/use_cases/add_to_cart.dart';
-import 'package:bakersoft_demo/core/common_cart_features/domain/use_cases/get_cart_items_count.dart';
-import 'package:bakersoft_demo/core/common_cart_features/presentation/bloc/cart_bloc.dart';
+
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
 import 'package:bakersoft_demo/features/cart/data_sources/cart_local_data_source.dart';
 import 'package:bakersoft_demo/features/cart/domain/repositories/cart_repository.dart';
+import 'package:bakersoft_demo/features/cart/domain/user_cases/add_to_cart.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/clear_cart.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_cart_items.dart';
+import 'package:bakersoft_demo/features/cart/domain/user_cases/get_cart_items_count.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_total_price.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/remove_from_cart.dart';
+import 'package:bakersoft_demo/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/features/favourite_products/data_sources/favourite_products_local_data_source.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/repositories/favourite_products_repository.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/add_product_to_favourite.dart';
