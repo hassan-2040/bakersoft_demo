@@ -18,13 +18,23 @@ It has following optional features:
 - Remove a product from favourites.
 - View favourite products.
 
-## App Flow
+## App Features
 
 The products are stored in the assets/products.json file and are decoded to display as needed.
 
 The app follows a modular approach. Each feature has its own module and each module is separated into data sources, domain and presentation layers.
 
-### Splash Feature
+The app begins with the splash page.
+
+### Splash
+As there is no API calls needed to be made during splash screen, this feature only includes the presentation layer. It has bloc form navigation and a page containing splash animation. 
+
+### Products List
+This is the root page of the app. It shows a grid of products with a cart button and add to favourites button.
+
+- #### Data Sources
+    As the Backend data is mocked, there is only one data source with a single function that simply loads the products.json, decodes them and returns an array.
+
 
 
 
