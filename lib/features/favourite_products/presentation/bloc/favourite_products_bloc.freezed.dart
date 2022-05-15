@@ -1209,7 +1209,7 @@ class __$$_SuccessCopyWithImpl<$Res>
 
 class _$_Success implements _Success {
   const _$_Success(
-      {this.stateId = 1, final List<Product> favouriteProducts = const []})
+      {this.stateId = 0, final List<Product> favouriteProducts = const []})
       : _favouriteProducts = favouriteProducts;
 
   @override

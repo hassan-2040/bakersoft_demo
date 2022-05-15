@@ -8,6 +8,6 @@ class GetCartItemsCount {
   });
 
   int call() {
-    return cartRepository.getCartItemCount();
+    return cartRepository.getCartItemsCount;
   }
 }

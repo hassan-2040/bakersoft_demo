@@ -56,6 +56,7 @@ class FavouriteProductsBloc
     }
   }
 
+  //TODO remove this function as its not being used anywhere
   void on_GetFavouriteProducts(event, emit) async {
     emit(_Success(
       favouriteProducts: getFavouriteProducts(),

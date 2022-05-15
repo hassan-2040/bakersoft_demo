@@ -1,7 +1,6 @@
 
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/features/cart/presentation/bloc/cart_bloc.dart';
-import 'package:bakersoft_demo/features/cart/presentation/widgets/cart_failure_widget.dart';
 import 'package:bakersoft_demo/features/cart/presentation/widgets/cart_item_widget.dart';
 import 'package:bakersoft_demo/features/cart/presentation/widgets/checkout_column_widget.dart';
 import 'package:bakersoft_demo/features/cart/presentation/widgets/empty_cart_widget.dart';
@@ -36,7 +35,7 @@ class CartPage extends StatelessWidget {
       body: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           late Widget _view;
-          state.when(
+          state.whenOrNull(
             initial: (
               int cartItemsCount,
               double totalPrice,
@@ -68,9 +67,6 @@ class CartPage extends StatelessWidget {
                   ],
                 );
               }
-            },
-            failure: (String errorMessage) {
-              _view = CartFailureWidget(errorMessage);
             },
           );
           return _view;

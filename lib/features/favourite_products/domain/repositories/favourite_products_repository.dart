@@ -23,6 +23,7 @@ class FavouriteProductsRepository {
     }
   }
 
+  //TODO remove the future call
   Future<void> clearFavouriteProducts() async {
     try {
       _favouriteProducts.clear();

@@ -21,7 +21,6 @@ mixin _$ProductDetailsEvent {
     required TResult Function() incrementQuantity,
     required TResult Function() decrementQuantity,
     required TResult Function() resetQuantity,
-    required TResult Function(Product product, int quantity) addToCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +28,6 @@ mixin _$ProductDetailsEvent {
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
     TResult Function()? resetQuantity,
-    TResult Function(Product product, int quantity)? addToCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +35,6 @@ mixin _$ProductDetailsEvent {
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
     TResult Function()? resetQuantity,
-    TResult Function(Product product, int quantity)? addToCart,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,7 +43,6 @@ mixin _$ProductDetailsEvent {
     required TResult Function(_IncrementQuantity value) incrementQuantity,
     required TResult Function(_DecrementQuantity value) decrementQuantity,
     required TResult Function(_ResetQuantity value) resetQuantity,
-    required TResult Function(_AddToCart value) addToCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,7 +50,6 @@ mixin _$ProductDetailsEvent {
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
     TResult Function(_ResetQuantity value)? resetQuantity,
-    TResult Function(_AddToCart value)? addToCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,7 +57,6 @@ mixin _$ProductDetailsEvent {
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
     TResult Function(_ResetQuantity value)? resetQuantity,
-    TResult Function(_AddToCart value)? addToCart,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -129,7 +123,6 @@ class _$_IncrementQuantity implements _IncrementQuantity {
     required TResult Function() incrementQuantity,
     required TResult Function() decrementQuantity,
     required TResult Function() resetQuantity,
-    required TResult Function(Product product, int quantity) addToCart,
   }) {
     return incrementQuantity();
   }
@@ -140,7 +133,6 @@ class _$_IncrementQuantity implements _IncrementQuantity {
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
     TResult Function()? resetQuantity,
-    TResult Function(Product product, int quantity)? addToCart,
   }) {
     return incrementQuantity?.call();
   }
@@ -151,7 +143,6 @@ class _$_IncrementQuantity implements _IncrementQuantity {
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
     TResult Function()? resetQuantity,
-    TResult Function(Product product, int quantity)? addToCart,
     required TResult orElse(),
   }) {
     if (incrementQuantity != null) {
@@ -166,7 +157,6 @@ class _$_IncrementQuantity implements _IncrementQuantity {
     required TResult Function(_IncrementQuantity value) incrementQuantity,
     required TResult Function(_DecrementQuantity value) decrementQuantity,
     required TResult Function(_ResetQuantity value) resetQuantity,
-    required TResult Function(_AddToCart value) addToCart,
   }) {
     return incrementQuantity(this);
   }
@@ -177,7 +167,6 @@ class _$_IncrementQuantity implements _IncrementQuantity {
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
     TResult Function(_ResetQuantity value)? resetQuantity,
-    TResult Function(_AddToCart value)? addToCart,
   }) {
     return incrementQuantity?.call(this);
   }
@@ -188,7 +177,6 @@ class _$_IncrementQuantity implements _IncrementQuantity {
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
     TResult Function(_ResetQuantity value)? resetQuantity,
-    TResult Function(_AddToCart value)? addToCart,
     required TResult orElse(),
   }) {
     if (incrementQuantity != null) {
@@ -246,7 +234,6 @@ class _$_DecrementQuantity implements _DecrementQuantity {
     required TResult Function() incrementQuantity,
     required TResult Function() decrementQuantity,
     required TResult Function() resetQuantity,
-    required TResult Function(Product product, int quantity) addToCart,
   }) {
     return decrementQuantity();
   }
@@ -257,7 +244,6 @@ class _$_DecrementQuantity implements _DecrementQuantity {
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
     TResult Function()? resetQuantity,
-    TResult Function(Product product, int quantity)? addToCart,
   }) {
     return decrementQuantity?.call();
   }
@@ -268,7 +254,6 @@ class _$_DecrementQuantity implements _DecrementQuantity {
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
     TResult Function()? resetQuantity,
-    TResult Function(Product product, int quantity)? addToCart,
     required TResult orElse(),
   }) {
     if (decrementQuantity != null) {
@@ -283,7 +268,6 @@ class _$_DecrementQuantity implements _DecrementQuantity {
     required TResult Function(_IncrementQuantity value) incrementQuantity,
     required TResult Function(_DecrementQuantity value) decrementQuantity,
     required TResult Function(_ResetQuantity value) resetQuantity,
-    required TResult Function(_AddToCart value) addToCart,
   }) {
     return decrementQuantity(this);
   }
@@ -294,7 +278,6 @@ class _$_DecrementQuantity implements _DecrementQuantity {
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
     TResult Function(_ResetQuantity value)? resetQuantity,
-    TResult Function(_AddToCart value)? addToCart,
   }) {
     return decrementQuantity?.call(this);
   }
@@ -305,7 +288,6 @@ class _$_DecrementQuantity implements _DecrementQuantity {
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
     TResult Function(_ResetQuantity value)? resetQuantity,
-    TResult Function(_AddToCart value)? addToCart,
     required TResult orElse(),
   }) {
     if (decrementQuantity != null) {
@@ -363,7 +345,6 @@ class _$_ResetQuantity implements _ResetQuantity {
     required TResult Function() incrementQuantity,
     required TResult Function() decrementQuantity,
     required TResult Function() resetQuantity,
-    required TResult Function(Product product, int quantity) addToCart,
   }) {
     return resetQuantity();
   }
@@ -374,7 +355,6 @@ class _$_ResetQuantity implements _ResetQuantity {
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
     TResult Function()? resetQuantity,
-    TResult Function(Product product, int quantity)? addToCart,
   }) {
     return resetQuantity?.call();
   }
@@ -385,7 +365,6 @@ class _$_ResetQuantity implements _ResetQuantity {
     TResult Function()? incrementQuantity,
     TResult Function()? decrementQuantity,
     TResult Function()? resetQuantity,
-    TResult Function(Product product, int quantity)? addToCart,
     required TResult orElse(),
   }) {
     if (resetQuantity != null) {
@@ -400,7 +379,6 @@ class _$_ResetQuantity implements _ResetQuantity {
     required TResult Function(_IncrementQuantity value) incrementQuantity,
     required TResult Function(_DecrementQuantity value) decrementQuantity,
     required TResult Function(_ResetQuantity value) resetQuantity,
-    required TResult Function(_AddToCart value) addToCart,
   }) {
     return resetQuantity(this);
   }
@@ -411,7 +389,6 @@ class _$_ResetQuantity implements _ResetQuantity {
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
     TResult Function(_ResetQuantity value)? resetQuantity,
-    TResult Function(_AddToCart value)? addToCart,
   }) {
     return resetQuantity?.call(this);
   }
@@ -422,7 +399,6 @@ class _$_ResetQuantity implements _ResetQuantity {
     TResult Function(_IncrementQuantity value)? incrementQuantity,
     TResult Function(_DecrementQuantity value)? decrementQuantity,
     TResult Function(_ResetQuantity value)? resetQuantity,
-    TResult Function(_AddToCart value)? addToCart,
     required TResult orElse(),
   }) {
     if (resetQuantity != null) {
@@ -437,212 +413,43 @@ abstract class _ResetQuantity implements ProductDetailsEvent {
 }
 
 /// @nodoc
-abstract class _$$_AddToCartCopyWith<$Res> {
-  factory _$$_AddToCartCopyWith(
-          _$_AddToCart value, $Res Function(_$_AddToCart) then) =
-      __$$_AddToCartCopyWithImpl<$Res>;
-  $Res call({Product product, int quantity});
-
-  $ProductCopyWith<$Res> get product;
-}
-
-/// @nodoc
-class __$$_AddToCartCopyWithImpl<$Res>
-    extends _$ProductDetailsEventCopyWithImpl<$Res>
-    implements _$$_AddToCartCopyWith<$Res> {
-  __$$_AddToCartCopyWithImpl(
-      _$_AddToCart _value, $Res Function(_$_AddToCart) _then)
-      : super(_value, (v) => _then(v as _$_AddToCart));
-
-  @override
-  _$_AddToCart get _value => super._value as _$_AddToCart;
-
-  @override
-  $Res call({
-    Object? product = freezed,
-    Object? quantity = freezed,
-  }) {
-    return _then(_$_AddToCart(
-      product: product == freezed
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as Product,
-      quantity: quantity == freezed
-          ? _value.quantity
-          : quantity // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-
-  @override
-  $ProductCopyWith<$Res> get product {
-    return $ProductCopyWith<$Res>(_value.product, (value) {
-      return _then(_value.copyWith(product: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$_AddToCart implements _AddToCart {
-  const _$_AddToCart({required this.product, required this.quantity});
-
-  @override
-  final Product product;
-  @override
-  final int quantity;
-
-  @override
-  String toString() {
-    return 'ProductDetailsEvent.addToCart(product: $product, quantity: $quantity)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_AddToCart &&
-            const DeepCollectionEquality().equals(other.product, product) &&
-            const DeepCollectionEquality().equals(other.quantity, quantity));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(product),
-      const DeepCollectionEquality().hash(quantity));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_AddToCartCopyWith<_$_AddToCart> get copyWith =>
-      __$$_AddToCartCopyWithImpl<_$_AddToCart>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() incrementQuantity,
-    required TResult Function() decrementQuantity,
-    required TResult Function() resetQuantity,
-    required TResult Function(Product product, int quantity) addToCart,
-  }) {
-    return addToCart(product, quantity);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? incrementQuantity,
-    TResult Function()? decrementQuantity,
-    TResult Function()? resetQuantity,
-    TResult Function(Product product, int quantity)? addToCart,
-  }) {
-    return addToCart?.call(product, quantity);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? incrementQuantity,
-    TResult Function()? decrementQuantity,
-    TResult Function()? resetQuantity,
-    TResult Function(Product product, int quantity)? addToCart,
-    required TResult orElse(),
-  }) {
-    if (addToCart != null) {
-      return addToCart(product, quantity);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_IncrementQuantity value) incrementQuantity,
-    required TResult Function(_DecrementQuantity value) decrementQuantity,
-    required TResult Function(_ResetQuantity value) resetQuantity,
-    required TResult Function(_AddToCart value) addToCart,
-  }) {
-    return addToCart(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IncrementQuantity value)? incrementQuantity,
-    TResult Function(_DecrementQuantity value)? decrementQuantity,
-    TResult Function(_ResetQuantity value)? resetQuantity,
-    TResult Function(_AddToCart value)? addToCart,
-  }) {
-    return addToCart?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_IncrementQuantity value)? incrementQuantity,
-    TResult Function(_DecrementQuantity value)? decrementQuantity,
-    TResult Function(_ResetQuantity value)? resetQuantity,
-    TResult Function(_AddToCart value)? addToCart,
-    required TResult orElse(),
-  }) {
-    if (addToCart != null) {
-      return addToCart(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _AddToCart implements ProductDetailsEvent {
-  const factory _AddToCart(
-      {required final Product product,
-      required final int quantity}) = _$_AddToCart;
-
-  Product get product => throw _privateConstructorUsedError;
-  int get quantity => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_AddToCartCopyWith<_$_AddToCart> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 mixin _$ProductDetailsState {
+  int get quantity => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int quantity) initial,
-    required TResult Function() addToCartSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(int quantity)? initial,
-    TResult Function()? addToCartSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int quantity)? initial,
-    TResult Function()? addToCartSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_AddToCartSuccess value) addToCartSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_AddToCartSuccess value)? addToCartSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_AddToCartSuccess value)? addToCartSuccess,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ProductDetailsStateCopyWith<ProductDetailsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -651,6 +458,7 @@ abstract class $ProductDetailsStateCopyWith<$Res> {
   factory $ProductDetailsStateCopyWith(
           ProductDetailsState value, $Res Function(ProductDetailsState) then) =
       _$ProductDetailsStateCopyWithImpl<$Res>;
+  $Res call({int quantity});
 }
 
 /// @nodoc
@@ -661,13 +469,27 @@ class _$ProductDetailsStateCopyWithImpl<$Res>
   final ProductDetailsState _value;
   // ignore: unused_field
   final $Res Function(ProductDetailsState) _then;
+
+  @override
+  $Res call({
+    Object? quantity = freezed,
+  }) {
+    return _then(_value.copyWith(
+      quantity: quantity == freezed
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
+abstract class _$$_InitialCopyWith<$Res>
+    implements $ProductDetailsStateCopyWith<$Res> {
   factory _$$_InitialCopyWith(
           _$_Initial value, $Res Function(_$_Initial) then) =
       __$$_InitialCopyWithImpl<$Res>;
+  @override
   $Res call({int quantity});
 }
 
@@ -729,7 +551,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int quantity) initial,
-    required TResult Function() addToCartSuccess,
   }) {
     return initial(quantity);
   }
@@ -738,7 +559,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(int quantity)? initial,
-    TResult Function()? addToCartSuccess,
   }) {
     return initial?.call(quantity);
   }
@@ -747,7 +567,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int quantity)? initial,
-    TResult Function()? addToCartSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -760,7 +579,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_AddToCartSuccess value) addToCartSuccess,
   }) {
     return initial(this);
   }
@@ -769,7 +587,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_AddToCartSuccess value)? addToCartSuccess,
   }) {
     return initial?.call(this);
   }
@@ -778,7 +595,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_AddToCartSuccess value)? addToCartSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -791,113 +607,10 @@ class _$_Initial implements _Initial {
 abstract class _Initial implements ProductDetailsState {
   const factory _Initial({final int quantity}) = _$_Initial;
 
+  @override
   int get quantity => throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_AddToCartSuccessCopyWith<$Res> {
-  factory _$$_AddToCartSuccessCopyWith(
-          _$_AddToCartSuccess value, $Res Function(_$_AddToCartSuccess) then) =
-      __$$_AddToCartSuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_AddToCartSuccessCopyWithImpl<$Res>
-    extends _$ProductDetailsStateCopyWithImpl<$Res>
-    implements _$$_AddToCartSuccessCopyWith<$Res> {
-  __$$_AddToCartSuccessCopyWithImpl(
-      _$_AddToCartSuccess _value, $Res Function(_$_AddToCartSuccess) _then)
-      : super(_value, (v) => _then(v as _$_AddToCartSuccess));
-
-  @override
-  _$_AddToCartSuccess get _value => super._value as _$_AddToCartSuccess;
-}
-
-/// @nodoc
-
-class _$_AddToCartSuccess implements _AddToCartSuccess {
-  const _$_AddToCartSuccess();
-
-  @override
-  String toString() {
-    return 'ProductDetailsState.addToCartSuccess()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AddToCartSuccess);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int quantity) initial,
-    required TResult Function() addToCartSuccess,
-  }) {
-    return addToCartSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int quantity)? initial,
-    TResult Function()? addToCartSuccess,
-  }) {
-    return addToCartSuccess?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int quantity)? initial,
-    TResult Function()? addToCartSuccess,
-    required TResult orElse(),
-  }) {
-    if (addToCartSuccess != null) {
-      return addToCartSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_AddToCartSuccess value) addToCartSuccess,
-  }) {
-    return addToCartSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AddToCartSuccess value)? addToCartSuccess,
-  }) {
-    return addToCartSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AddToCartSuccess value)? addToCartSuccess,
-    required TResult orElse(),
-  }) {
-    if (addToCartSuccess != null) {
-      return addToCartSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _AddToCartSuccess implements ProductDetailsState {
-  const factory _AddToCartSuccess() = _$_AddToCartSuccess;
 }

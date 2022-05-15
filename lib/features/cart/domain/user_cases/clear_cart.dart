@@ -7,11 +7,7 @@ class ClearCart {
     required this.cartRepository,
   });
 
-  Future<void> call() async {
-    try {
-      await cartRepository.clearCart();
-    } catch (_e) {
-      rethrow;
-    }
+  void call() {
+    cartRepository.clearCart();
   }
 }

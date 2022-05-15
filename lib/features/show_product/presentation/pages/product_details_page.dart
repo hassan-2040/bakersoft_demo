@@ -1,4 +1,3 @@
-
 import 'package:bakersoft_demo/core/common_widgets/cart_icon_button.dart';
 import 'package:bakersoft_demo/core/common_widgets/custom_opacity_animation.dart';
 import 'package:bakersoft_demo/core/common_widgets/image_loader.dart';
@@ -109,27 +108,21 @@ class ProductDetailsPage extends StatelessWidget {
                   const SizedBox(
                     width: 5,
                   ),
-                  BlocConsumer<ProductDetailsBloc, ProductDetailsState>(
-                    listener: (context, state) {
-                      state.whenOrNull(
-                        addToCartSuccess: () {
-                          AppConfig.showSuccessSnackBar(
-                              snackBarText: 'Item added to cart!');
+                  BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
+                    builder: (context, state) {
+                      late Widget _quantityWidget;
+                      state.when(
+                        initial: (_quantity) {
+                          _quantityWidget = Text(
+                            '$_quantity',
+                            style: AppConfig.getTextStyle(
+                              context: context,
+                              textSize: TextSize.sub,
+                            ),
+                          );
                         },
                       );
-                    },
-                    builder: (context, state) {
-                      int _quantity = 1;
-                      state.whenOrNull(
-                        initial: (quantity) => _quantity = quantity,
-                      );
-                      return Text(
-                        '$_quantity',
-                        style: AppConfig.getTextStyle(
-                          context: context,
-                          textSize: TextSize.sub,
-                        ),
-                      );
+                      return _quantityWidget;
                     },
                   ),
                   const SizedBox(
@@ -174,8 +167,9 @@ class ProductDetailsPage extends StatelessWidget {
         floatingActionButton:
             BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
           builder: (context, state) {
-            int _quantity = 1;
-            state.whenOrNull(
+            //TODO wrap the scaffold with product details bloc for cleaner code
+            late int _quantity;
+            state.when(
               initial: (quantity) => _quantity = quantity,
             );
             return Row(
@@ -184,18 +178,29 @@ class ProductDetailsPage extends StatelessWidget {
                   width: 10,
                 ),
                 Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      BlocProvider.of<ProductDetailsBloc>(context).add(
-                        ProductDetailsEvent.addToCart(
+                  child: BlocListener<CartBloc, CartState>(
+                    listener: (context, state) {
+                      state.whenOrNull(
+                        addToCartSuccess: () {
+                          //when item is added to cart, reset quantity
+                          AppConfig.showSuccessSnackBar(
+                            snackBarText: 'Item added to cart!',
+                          );
+                          BlocProvider.of<ProductDetailsBloc>(context)
+                              .add(const ProductDetailsEvent.resetQuantity());
+                        },
+                      );
+                    },
+                    child: ElevatedButton(
+                      onPressed: () {
+                        BlocProvider.of<CartBloc>(context)
+                            .add(CartEvent.addToCart(
                           product: product,
                           quantity: _quantity,
-                        ),
-                      );
-                      BlocProvider.of<CartBloc>(context)
-                          .add(const CartEvent.getCartDetails());
-                    },
-                    child: const Text('Add to cart'),
+                        ));
+                      },
+                      child: const Text('Add to cart'),
+                    ),
                   ),
                 ),
                 const SizedBox(

@@ -1,4 +1,3 @@
-
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
 import 'package:bakersoft_demo/features/cart/data_sources/cart_local_data_source.dart';
 import 'package:bakersoft_demo/features/cart/domain/repositories/cart_repository.dart';
@@ -7,7 +6,9 @@ import 'package:bakersoft_demo/features/cart/domain/user_cases/clear_cart.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_cart_items.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_cart_items_count.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/get_total_price.dart';
+import 'package:bakersoft_demo/features/cart/domain/user_cases/load_saved_cart.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/remove_from_cart.dart';
+import 'package:bakersoft_demo/features/cart/domain/user_cases/save_cart.dart';
 import 'package:bakersoft_demo/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/features/favourite_products/data_sources/favourite_products_local_data_source.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/repositories/favourite_products_repository.dart';
@@ -49,20 +50,17 @@ class MyApp extends StatelessWidget {
         ),
         RepositoryProvider<CartRepository>(
           create: (context) => CartRepository(
-            localDataSource: CartLocalDataSource(),
+            cartLocalDataSource: CartLocalDataSource(),
           ),
         ),
         RepositoryProvider<FavouriteProductsRepository>(
           create: (context) => FavouriteProductsRepository(
-            favouriteProductsLocalDataSource: FavouriteProductsLocalDataSource(),
+            favouriteProductsLocalDataSource:
+                FavouriteProductsLocalDataSource(),
           ),
         ),
         RepositoryProvider<ProductDetailsRepository>(
-          create: (context) => ProductDetailsRepository(
-            addToCart: AddToCart(
-              cartRepository: RepositoryProvider.of<CartRepository>(context),
-            ),
-          ),
+          create: (context) => ProductDetailsRepository(),
         ),
       ],
       child: MultiBlocProvider(
@@ -92,13 +90,19 @@ class MyApp extends StatelessWidget {
                 productDetailsRepository:
                     RepositoryProvider.of<ProductDetailsRepository>(context),
               ),
-              addToCart: AddToCart(
-                cartRepository: RepositoryProvider.of<CartRepository>(context),
-              ),
             ),
           ),
           BlocProvider<CartBloc>(
             create: (context) => CartBloc(
+              addToCart: AddToCart(
+                cartRepository: RepositoryProvider.of<CartRepository>(context),
+              ),
+              loadSavedCart: LoadSavedCart(
+                cartRepository: RepositoryProvider.of<CartRepository>(context),
+              ),
+              saveCart: SaveCart(
+                cartRepository: RepositoryProvider.of<CartRepository>(context),
+              ),
               getCartItemsCount: GetCartItemsCount(
                 cartRepository: RepositoryProvider.of<CartRepository>(context),
               ),
@@ -114,7 +118,7 @@ class MyApp extends StatelessWidget {
               clearCart: ClearCart(
                 cartRepository: RepositoryProvider.of<CartRepository>(context),
               ),
-            )..add(const CartEvent.getCartDetails()),
+            )..add(const CartEvent.loadSavedCart()),
           ),
           BlocProvider<FavouriteProductsBloc>(
             create: (context) => FavouriteProductsBloc(

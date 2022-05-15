@@ -2,6 +2,7 @@
 import 'package:bakersoft_demo/core/common_widgets/cart_icon_button.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/app_router.dart';
+import 'package:bakersoft_demo/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/bloc/favourite_products_bloc.dart';
 import 'package:bakersoft_demo/features/products_list/domain/models/product.dart';
 import 'package:bakersoft_demo/features/products_list/presentation/bloc/products_list_bloc.dart';
@@ -45,6 +46,7 @@ class _ProductsListPageState extends State<ProductsListPage>
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.paused) {
       BlocProvider.of<FavouriteProductsBloc>(context).add(const FavouriteProductsEvent.saveFavouriteProducts());
+      BlocProvider.of<CartBloc>(context).add(const CartEvent.saveCart());
     }
     super.didChangeAppLifecycleState(state);
   }

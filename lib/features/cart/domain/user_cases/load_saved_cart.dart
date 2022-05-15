@@ -1,13 +1,17 @@
 import 'package:bakersoft_demo/features/cart/domain/repositories/cart_repository.dart';
 
-class GetTotalPrice {
+class LoadSavedCart {
   final CartRepository cartRepository;
 
-  GetTotalPrice({
+  LoadSavedCart({
     required this.cartRepository,
   });
 
-  double call() {
-    return cartRepository.getTotalPrice;
+  Future<void> call() async {
+    try {
+      await cartRepository.loadSavedCart();
+    } catch (_) {
+      rethrow;
+    }
   }
 }

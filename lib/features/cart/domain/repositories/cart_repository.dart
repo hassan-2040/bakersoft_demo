@@ -2,20 +2,29 @@ import 'package:bakersoft_demo/features/cart/data_sources/cart_local_data_source
 import 'package:bakersoft_demo/features/products_list/domain/models/product.dart';
 
 class CartRepository {
-  final CartLocalDataSource localDataSource;
+  final CartLocalDataSource cartLocalDataSource;
 
   CartRepository({
-    required this.localDataSource,
+    required this.cartLocalDataSource,
   }); // constructor
 
   Map<Product, int> _cartItems = {};
-  double _totalPrice = 0;
 
-  Future<Map<Product, int>> addToCart({
+  Map<Product, int> get getCartItems => _cartItems;
+  int get getCartItemsCount => _cartItems.length;
+  
+  double get getTotalPrice {
+    double _tempPrice = 0;
+    _cartItems.forEach((key, value) {
+      _tempPrice += key.price * value;
+    });
+    return _tempPrice;
+  }
+
+  void addToCart({
     required Product product,
     required int quantity,
   }) async {
-    try {
       if (_cartItems.containsKey(product)) {
         final _previousQuantity = _cartItems[product];
         if (_previousQuantity == null) {
@@ -26,55 +35,29 @@ class CartRepository {
       } else {
         _cartItems[product] = quantity;
       }
-      _updatePrice();
-      await localDataSource.saveCartToLocalStrage(_cartItems);
-      return _cartItems;
-    } catch (_) {
-      rethrow;
-    }
   }
 
-  //since there is no remote data source, we will just return the local data
-  Future<Map<Product, int>> getCartItems() async {
-    try {
-      if (_cartItems.isEmpty) {
-        _cartItems = await localDataSource.getCartFromLocalStrage();
-      }
-      _updatePrice();
-      return _cartItems;
-    } catch (_) {
-      rethrow;
-    }
-  }
-
-  Future<void> removeFromCart(Product product) async {
+  void removeFromCart(Product product) {
     _cartItems.remove(product);
-    _updatePrice();
-    await localDataSource.saveCartToLocalStrage(_cartItems);
   }
 
-  Future<void> clearCart() async {
+  void clearCart() {
+    _cartItems.clear();
+  }
+
+  Future<void> loadSavedCart() async {
     try {
-      _cartItems.clear();
-      _totalPrice = 0;
-      await localDataSource.clearCart();
+      _cartItems = await cartLocalDataSource.getCartFromLocalStrage();
     } catch (_) {
       rethrow;
     }
   }
 
-  double getTotalPrice() {
-    return _totalPrice;
-  }
-
-  int getCartItemCount() {
-    return _cartItems.length;
-  }
-
-  void _updatePrice() {
-    _totalPrice = 0;
-    _cartItems.forEach((key, value) {
-      _totalPrice += key.price * value;
-    });
+  Future<void> saveCart() async {
+    try {
+      await cartLocalDataSource.saveCartToLocalStrage(_cartItems);
+    } catch (_) {
+      rethrow;
+    }
   }
 }

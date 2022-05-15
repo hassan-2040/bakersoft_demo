@@ -27,15 +27,6 @@ class CartLocalDataSource {
     }
   }
 
-  Future<void> clearCart() async {
-    try {
-      final _p = await _prefs;
-      _p.remove('cart');
-    } catch (_) {
-      rethrow;
-    }
-  }
-
   Map<String, dynamic> _toJson(Map<Product, int> _cart) {
     final _list = [];
     _cart.forEach((key, value) {

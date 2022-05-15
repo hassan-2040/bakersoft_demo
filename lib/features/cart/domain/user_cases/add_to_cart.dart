@@ -8,17 +8,13 @@ class AddToCart {
     required this.cartRepository,
   });
 
-  Future<Map<Product, int>> call({
+  void call({
     required Product product,
     required int quantity,
-  }) async {
-    try {
-      return await cartRepository.addToCart(
-        product: product,
-        quantity: quantity,
-      );
-    } catch (_) {
-      rethrow;
-    }
+  }) {
+    cartRepository.addToCart(
+      product: product,
+      quantity: quantity,
+    );
   }
 }

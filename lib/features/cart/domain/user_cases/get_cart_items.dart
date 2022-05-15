@@ -8,7 +8,7 @@ class GetCartItems {
     required this.cartRepository,
   });
 
-  Future<Map<Product, int>> call() async {
-    return await cartRepository.getCartItems();
+  Map<Product, int> call() {
+    return cartRepository.getCartItems;
   }
 }
