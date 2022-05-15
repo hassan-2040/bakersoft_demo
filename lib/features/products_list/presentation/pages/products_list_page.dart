@@ -1,4 +1,3 @@
-
 import 'package:bakersoft_demo/core/common_widgets/cart_icon_button.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/app_router.dart';

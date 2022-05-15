@@ -3,10 +3,10 @@ import 'package:bakersoft_demo/core/common_widgets/custom_opacity_animation.dart
 import 'package:bakersoft_demo/core/common_widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';
-import 'package:bakersoft_demo/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/widgets/toggle_favourite_button.dart';
 import 'package:bakersoft_demo/features/products_list/domain/models/product.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/bloc/product_details_bloc.dart';
+import 'package:bakersoft_demo/features/show_product/presentation/widgets/add_to_cart_button.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/widgets/nutritional_value_widget.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/widgets/quantity_button.dart';
 import 'package:flutter/material.dart';
@@ -164,53 +164,7 @@ class ProductDetailsPage extends StatelessWidget {
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton:
-            BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
-          builder: (context, state) {
-            //TODO wrap the scaffold with product details bloc for cleaner code
-            late int _quantity;
-            state.when(
-              initial: (quantity) => _quantity = quantity,
-            );
-            return Row(
-              children: [
-                const SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: BlocListener<CartBloc, CartState>(
-                    listener: (context, state) {
-                      state.whenOrNull(
-                        addToCartSuccess: () {
-                          printInfo('confirmation from product details');
-                          //when item is added to cart, reset quantity
-                          AppConfig.showSuccessSnackBar(
-                            snackBarText: 'Item added to cart!',
-                          );
-                          BlocProvider.of<ProductDetailsBloc>(context)
-                              .add(const ProductDetailsEvent.resetQuantity());
-                        },
-                      );
-                    },
-                    child: ElevatedButton(
-                      onPressed: () {
-                        BlocProvider.of<CartBloc>(context)
-                            .add(CartEvent.addToCart(
-                          product: product,
-                          quantity: _quantity,
-                        ));
-                      },
-                      child: const Text('Add to cart'),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-              ],
-            );
-          },
-        ),
+        floatingActionButton: AddToCartButton(product),
       ),
     );
   }

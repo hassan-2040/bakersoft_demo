@@ -1,4 +1,3 @@
-
 import 'package:bakersoft_demo/core/common_widgets/custom_opacity_animation.dart';
 import 'package:bakersoft_demo/core/common_widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';

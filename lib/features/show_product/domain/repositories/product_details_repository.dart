@@ -1,4 +1,3 @@
-
 class ProductDetailsRepository {
 
   int _quantity = 1;

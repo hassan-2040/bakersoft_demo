@@ -17,7 +17,6 @@ part 'favourite_products_event.dart';
 part 'favourite_products_state.dart';
 part 'favourite_products_bloc.freezed.dart';
 
-//TODO remove print statements everyhwere
 class FavouriteProductsBloc
     extends Bloc<FavouriteProductsEvent, FavouriteProductsState> {
   final AddProductToFavourite addProductToFavourite;

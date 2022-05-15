@@ -1,4 +1,3 @@
-
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:bakersoft_demo/features/cart/presentation/widgets/cart_item_widget.dart';

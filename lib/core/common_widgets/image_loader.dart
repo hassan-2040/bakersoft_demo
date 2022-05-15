@@ -1,4 +1,3 @@
-import 'package:bakersoft_demo/core/common_widgets/custom_opacity_animation.dart';
 import 'package:flutter/material.dart';
 
 class ImageLoader extends StatelessWidget {
