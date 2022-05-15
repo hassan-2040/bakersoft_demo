@@ -15,27 +15,33 @@ class FavouriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        if (checkIsFavourite(product)) {
-          BlocProvider.of<FavouriteProductsBloc>(context).add(
-            FavouriteProductsEvent.removeFromFavourite(product: product),
-          );
-        } else {
-          BlocProvider.of<FavouriteProductsBloc>(context).add(
-            FavouriteProductsEvent.addToFavourite(product: product),
-          );
-        }
-      },
-      icon: BlocBuilder<FavouriteProductsBloc, FavouriteProductsState>(
-        builder: (context, state) {
-          return checkIsFavourite(product)
-              ? const Icon(
-                  Icons.favorite,
-                  color: Colors.red,
-                )
-              : const Icon(Icons.favorite_border);
-        },
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(30),
+      child: Material(
+        color: Colors.transparent,
+        child: IconButton(
+          onPressed: () {
+            if (checkIsFavourite(product)) {
+              BlocProvider.of<FavouriteProductsBloc>(context).add(
+                FavouriteProductsEvent.removeFromFavourite(product: product),
+              );
+            } else {
+              BlocProvider.of<FavouriteProductsBloc>(context).add(
+                FavouriteProductsEvent.addToFavourite(product: product),
+              );
+            }
+          },
+          icon: BlocBuilder<FavouriteProductsBloc, FavouriteProductsState>(
+            builder: (context, state) {
+              return checkIsFavourite(product)
+                  ? const Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    )
+                  : const Icon(Icons.favorite_border);
+            },
+          ),
+        ),
       ),
     );
   }

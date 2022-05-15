@@ -4,6 +4,9 @@ import 'package:bakersoft_demo/core/common_widgets/cart_icon_button.dart';
 import 'package:bakersoft_demo/core/common_widgets/image_loader.dart';
 import 'package:bakersoft_demo/core/utilities/app_config.dart';
 import 'package:bakersoft_demo/core/utilities/constants.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/repositories/favourite_products_repository.dart';
+import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/check_is_favourite.dart';
+import 'package:bakersoft_demo/features/favourite_products/presentation/widgets/favourite_button.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/bloc/product_details_bloc.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/widgets/nutritional_value_widget.dart';
 import 'package:bakersoft_demo/features/show_product/presentation/widgets/quantity_button.dart';
@@ -42,10 +45,24 @@ class ProductDetailsPage extends StatelessWidget {
             children: [
               Hero(
                 tag: product.id,
-                child: ImageLoader(
-                  imageUrl: product.imageUrl,
-                  height: AppConfig.screenHeight * 0.5,
-                  placeHolderHeight: AppConfig.screenHeight * 0.5,
+                child: Stack(
+                  children: [
+                    ImageLoader(
+                      imageUrl: product.imageUrl,
+                      height: AppConfig.screenHeight * 0.5,
+                      placeHolderHeight: AppConfig.screenHeight * 0.5,
+                    ),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: FavouriteButton(
+                        product: product,
+                        checkIsFavourite: CheckIsFavourite(
+                          favouriteProductsRepository: RepositoryProvider.of<
+                              FavouriteProductsRepository>(context),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(
