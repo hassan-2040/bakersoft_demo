@@ -1,5 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'dart:math';
+
 import 'package:bakersoft_demo/core/common_product_features/domain/models/product.dart';
 import 'package:bakersoft_demo/core/error/custom_error_responses.dart';
 import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/add_product_to_favourite.dart';
@@ -45,31 +47,51 @@ class FavouriteProductsBloc
     emit(const _Loading());
     try {
       await loadSavedFavouriteProducts();
-      emit(_Success(favouriteProducts: getFavouriteProducts()));
+
+      emit(_Success(
+        favouriteProducts: getFavouriteProducts(),
+      ));
     } catch (_error) {
       emit(_Failure(customErrorResponses(_error)));
     }
   }
 
   void on_GetFavouriteProducts(event, emit) async {
-    emit(_Success(favouriteProducts: getFavouriteProducts()));
+    emit(_Success(
+      favouriteProducts: getFavouriteProducts(),
+      stateId: _getStateId(),
+    ));
   }
 
   void on_AddToFavourite(event, emit) {
     addProductToFavourite(event.product);
-    emit(_Success(favouriteProducts: getFavouriteProducts()));
+    emit(_Success(
+      favouriteProducts: getFavouriteProducts(),
+      stateId: _getStateId(),
+    ));
   }
 
   void on_RemoveFromFavourite(event, emit) {
     removeFromFavourite(event.product);
-    emit(_Success(favouriteProducts: getFavouriteProducts()));
+    emit(_Success(
+      favouriteProducts: getFavouriteProducts(),
+      stateId: _getStateId(),
+    ));
   }
 
   void on_ClearFavouriteProducts(event, emit) {
     clearFavouriteProducts();
+    emit(_Success(
+      favouriteProducts: getFavouriteProducts(),
+      stateId: _getStateId(),
+    ));
   }
 
   void on_SaveFavouriteProducts(event, emit) async {
     await saveFavouriteProducts();
+  }
+
+  int _getStateId() {
+    return Random().nextInt(1000000000);
   }
 }

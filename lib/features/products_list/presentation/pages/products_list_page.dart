@@ -124,14 +124,10 @@ class _ProductsListPageState extends State<ProductsListPage>
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed(AppRouter.favouriteProductsPageRoute);
-        },
-        child: const Icon(
-          Icons.favorite,
-          color: Colors.red,
-        ),
+      floatingActionButton: ElevatedButton(
+        onPressed: () => Navigator.of(context)
+            .pushNamed(AppRouter.favouriteProductsPageRoute),
+        child: const Text('Favourites'),
       ),
     );
   }

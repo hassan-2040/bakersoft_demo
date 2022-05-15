@@ -4,6 +4,7 @@ part of 'favourite_products_bloc.dart';
 class FavouriteProductsState with _$FavouriteProductsState {
   const factory FavouriteProductsState.loading() = _Loading;
   const factory FavouriteProductsState.success({
+    @Default(0) int stateId,
     @Default([]) List<Product> favouriteProducts,
   }) = _Success;
   const factory FavouriteProductsState.failure(String message) = _Failure;

@@ -14,7 +14,6 @@ class FavouriteProductsRepository {
 
   void addToFavourite(Product product) {
     _favouriteProducts.add(product);
-    print('adding length ${_favouriteProducts.length}');
   }
 
   Future<void> removeFromFavourite(Product product) async {
@@ -22,12 +21,6 @@ class FavouriteProductsRepository {
     if (_favouriteProducts.isEmpty) {
       await favouriteProductsLocalDataSource.clearFavouriteProducts();
     }
-    print('removing length ${_favouriteProducts.length}');
-  }
-
-  bool checkIsFavourite(Product product) {
-    print('checking favourite, ${_favouriteProducts.length}');
-    return _favouriteProducts.contains(product);
   }
 
   Future<void> clearFavouriteProducts() async {

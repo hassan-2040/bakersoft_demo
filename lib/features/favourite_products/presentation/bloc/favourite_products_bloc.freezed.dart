@@ -997,21 +997,22 @@ mixin _$FavouriteProductsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Product> favouriteProducts) success,
+    required TResult Function(int stateId, List<Product> favouriteProducts)
+        success,
     required TResult Function(String message) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> favouriteProducts)? success,
+    TResult Function(int stateId, List<Product> favouriteProducts)? success,
     TResult Function(String message)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> favouriteProducts)? success,
+    TResult Function(int stateId, List<Product> favouriteProducts)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) =>
@@ -1098,7 +1099,8 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Product> favouriteProducts) success,
+    required TResult Function(int stateId, List<Product> favouriteProducts)
+        success,
     required TResult Function(String message) failure,
   }) {
     return loading();
@@ -1108,7 +1110,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> favouriteProducts)? success,
+    TResult Function(int stateId, List<Product> favouriteProducts)? success,
     TResult Function(String message)? failure,
   }) {
     return loading?.call();
@@ -1118,7 +1120,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> favouriteProducts)? success,
+    TResult Function(int stateId, List<Product> favouriteProducts)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -1172,7 +1174,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
   factory _$$_SuccessCopyWith(
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
-  $Res call({List<Product> favouriteProducts});
+  $Res call({int stateId, List<Product> favouriteProducts});
 }
 
 /// @nodoc
@@ -1187,9 +1189,14 @@ class __$$_SuccessCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? stateId = freezed,
     Object? favouriteProducts = freezed,
   }) {
     return _then(_$_Success(
+      stateId: stateId == freezed
+          ? _value.stateId
+          : stateId // ignore: cast_nullable_to_non_nullable
+              as int,
       favouriteProducts: favouriteProducts == freezed
           ? _value._favouriteProducts
           : favouriteProducts // ignore: cast_nullable_to_non_nullable
@@ -1201,9 +1208,13 @@ class __$$_SuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success({final List<Product> favouriteProducts = const []})
+  const _$_Success(
+      {this.stateId = 1, final List<Product> favouriteProducts = const []})
       : _favouriteProducts = favouriteProducts;
 
+  @override
+  @JsonKey()
+  final int stateId;
   final List<Product> _favouriteProducts;
   @override
   @JsonKey()
@@ -1214,7 +1225,7 @@ class _$_Success implements _Success {
 
   @override
   String toString() {
-    return 'FavouriteProductsState.success(favouriteProducts: $favouriteProducts)';
+    return 'FavouriteProductsState.success(stateId: $stateId, favouriteProducts: $favouriteProducts)';
   }
 
   @override
@@ -1222,13 +1233,16 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
+            const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality()
                 .equals(other._favouriteProducts, _favouriteProducts));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_favouriteProducts));
+      runtimeType,
+      const DeepCollectionEquality().hash(stateId),
+      const DeepCollectionEquality().hash(_favouriteProducts));
 
   @JsonKey(ignore: true)
   @override
@@ -1239,32 +1253,33 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Product> favouriteProducts) success,
+    required TResult Function(int stateId, List<Product> favouriteProducts)
+        success,
     required TResult Function(String message) failure,
   }) {
-    return success(favouriteProducts);
+    return success(stateId, favouriteProducts);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> favouriteProducts)? success,
+    TResult Function(int stateId, List<Product> favouriteProducts)? success,
     TResult Function(String message)? failure,
   }) {
-    return success?.call(favouriteProducts);
+    return success?.call(stateId, favouriteProducts);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> favouriteProducts)? success,
+    TResult Function(int stateId, List<Product> favouriteProducts)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(favouriteProducts);
+      return success(stateId, favouriteProducts);
     }
     return orElse();
   }
@@ -1305,8 +1320,10 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements FavouriteProductsState {
-  const factory _Success({final List<Product> favouriteProducts}) = _$_Success;
+  const factory _Success(
+      {final int stateId, final List<Product> favouriteProducts}) = _$_Success;
 
+  int get stateId => throw _privateConstructorUsedError;
   List<Product> get favouriteProducts => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
@@ -1378,7 +1395,8 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Product> favouriteProducts) success,
+    required TResult Function(int stateId, List<Product> favouriteProducts)
+        success,
     required TResult Function(String message) failure,
   }) {
     return failure(message);
@@ -1388,7 +1406,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> favouriteProducts)? success,
+    TResult Function(int stateId, List<Product> favouriteProducts)? success,
     TResult Function(String message)? failure,
   }) {
     return failure?.call(message);
@@ -1398,7 +1416,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Product> favouriteProducts)? success,
+    TResult Function(int stateId, List<Product> favouriteProducts)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {

@@ -1,5 +1,3 @@
-import 'package:bakersoft_demo/features/favourite_products/domain/repositories/favourite_products_repository.dart';
-import 'package:bakersoft_demo/features/favourite_products/domain/use_cases/check_is_favourite.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/bloc/favourite_products_bloc.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/widgets/favourite_products_failure_widget.dart';
 import 'package:bakersoft_demo/features/favourite_products/presentation/widgets/favourite_products_loading_widget.dart';
@@ -15,24 +13,24 @@ class FavouriteProductsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Favourite Products'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              BlocProvider.of<FavouriteProductsBloc>(context)
+                  .add(const FavouriteProductsEvent.clearFavouriteProducts());
+            },
+            icon: const Icon(Icons.clear),
+          ),
+        ],
       ),
       body: BlocBuilder<FavouriteProductsBloc, FavouriteProductsState>(
         builder: (context, state) {
           late Widget _view;
-          // state.when(
-          //   initial: () => print('initial state'),
-          //   loading: () => print('loading state'),
-          //   success: (products) => print('success state'),
-          //   failure: (message) => print('failure state'),
-          //   addProductToFavouriteSuccess: () => print('add state'),
-          //   removeProductFromFavouriteSuccess:
-          //       () => print('remove state'),
-          // );
           state.when(
             loading: () => _view = const FavouriteProductsLoadingWidget(),
             failure: (message) =>
                 _view = FavouriteProductsFailureWidget(message),
-            success: (products) => _view = ListView.builder(
+            success: (_, products) => _view = ListView.builder(
               itemCount: products.length,
               itemBuilder: (context, index) {
                 final product = products[index];
@@ -41,10 +39,6 @@ class FavouriteProductsPage extends StatelessWidget {
                   subtitle: Text(product.description),
                   trailing: ToggleFavouriteButton(
                     product: product,
-                    checkIsFavourite: CheckIsFavourite(
-                        favouriteProductsRepository:
-                            RepositoryProvider.of<FavouriteProductsRepository>(
-                                context)),
                   ),
                 );
               },
