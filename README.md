@@ -65,7 +65,7 @@ Tapping any product in the **Products List** opens the product details page. You
     - Increment Quantity
     - Decrement Quantity
     - Reset Quantity
-- **Bloc** takes in events to change quantity and emits the new quantity value, which is shown in the UI.
+- **ProductDetailsBloc** takes in events to change quantity and emits the new quantity value, which is shown in the UI.
 - Add To Cart button calls the ***CartBloc*** in the Cart feature to add the product to cart. 
 - Add to Favourites calls the ***FavouriteProductsBloc*** to add the product to favourites. 
 
@@ -113,11 +113,11 @@ Contains a custom error response function that can be scaled to add all error ca
 
 ### Utilities
 
-- ***AppConfig*** has static attributes that mut be initialized in the root page of the application. It contains following data for multiple app functions and configurations:
+- ***AppConfig*** has static attributes that must be initialized in the root page of the application. It contains following data for multiple app functions and configurations:
     - Media query data
     - Text sizes based on screen size
     - Get Text Style function to standardize text style
-    - Confirmation Dialog function to be used anywhere
+    - Confirmation Dialog function that returns true or false to be used anywhere
     - Success, Warning and Failure snackbars to be used anywhere.
 - ***AppRouter*** defines an initial route and an onGenerateRoute functions with route strings. All attributes are static for static access. 
 - ***Constants.dart*** contains all constants and enums used with the app.
