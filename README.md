@@ -18,6 +18,12 @@ It has following optional features:
 - Remove a product from favourites.
 - View favourite products.
 
+## App Setup
+The app uses BLoC pattern and modular approach. Following dependencies are implemented:
+- **freezed** to generate data classes/blocs
+- **flutter_bloc** for state management
+- **shared_preferences** for access to local storage
+
 ## App Features
 The app follows a modular approach. Each feature has its own module and each module is separated into data sources, domain and presentation layers. The assets folder contains a single ***products.json*** file containing products.
 
