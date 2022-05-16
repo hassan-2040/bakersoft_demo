@@ -11,7 +11,7 @@ It has the following mandatory features:
 - View details of a product. 
 - Add product to cart. 
 - Remove product from cart. 
-= View shopping cart.
+- View shopping cart.
 
 It has following optional features:
 - Mark a product as favourite. 
