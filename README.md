@@ -4,7 +4,7 @@ Demo Project for Bakersoft.
 
 ## Overview
 
-This is a shopping/marketplace app with cart and favourite products.
+This is a shopping/marketplace app with cart and favourite products. It can run on both iOS and Android phones.
 
 It has the following mandatory features:
 - View a list of products.
