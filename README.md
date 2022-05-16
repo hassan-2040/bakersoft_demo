@@ -104,6 +104,7 @@ Products can be added to favourites from multiple places. The workflow is simila
 
 ## App Core
 This folder contains some app configurations and items that are commonly used throught the app.
+
 ### Common Widgets
 Contains common widgets reused in multiple places. 
 
