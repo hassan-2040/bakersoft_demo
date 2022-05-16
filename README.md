@@ -34,11 +34,10 @@ The products are stored in the assets/products.json file and are decoded to disp
 
 
 ### Common Entity 
-The product model is the common entity throughout the app lifecycle. As the products list feature is the 
-root of the app, the product model is located in the domain layer of the products list feature.
+The ***Product*** model is the common entity throughout the app lifecycle. As the products list feature is the root of the app, the ***Product*** model is located in the domain layer of the products list feature.
 
-### Features Flow
-Each feature has, with some variations, the following flow:
+### Features Workflow
+Each feature has, with some variations, the following workflow:
 - UI in the **presentation** layer triggers an event in the relevant **bloc**.
 - The **bloc** takes in instances of all relevant **use cases** from the **domain** layer. Each **use case** is triggered as needed based on the incoming event.
 - The **use case** takes in the relevant **repository** instance and ***calls*** its functions, which calls the relevant function in the **repository**.
@@ -47,19 +46,65 @@ Each feature has, with some variations, the following flow:
 - **bloc** emits a relevant state to update the UI in the **presentation** layer. 
 
 ### Splash
-As there is no API calls needed to be made during splash screen, this feature only includes the presentation layer. It has bloc form navigation and a page containing splash animation. 
+As there is no API calls needed to be made during splash screen, this feature only includes the presentation layer. It has bloc for navigation and a page containing splash animation. 
 
 ### Products List
 This is the root page of the app. It shows a grid of products with a cart button and add to favourites button.
+As this is the root page, the **WidgetsBindingObserver** is implemented to save the cart and favourite products to the local storage when the app goes into inactive state. 
 
-- #### Data Sources
-    Contains ***ProductsLocalDataSource*** to fetch products from **products.json**.
-- #### Domain
-    - ##### Models
-        Contains the ***Product*** model which is used throughout the app. 
-    - ##### Repositories
-        ***ProductsRepository*** takes in an instance of ***ProductsLocalDataSource*** and runs ***getAllProducts***, which takes page number and returns ***List<Product>***. 
-    - ##### Use Cases
-        Contains ***GetAllProducts*** that takes an instance of ***ProductsRepository*** that ***calls*** with a page number to fetch ***List<Product>***.
-- #### Presentation
-    - ##### Bloc
+- There is only a single ***ProductsLocalDataSource*** to fetch products.
+- **Domain** layer contains the ***Product*** model used throughout the app.
+- Only **use case** is ***Get All Products***. Pagination is implemented.
+- Add to Favourites calls the ***FavouriteProductsBloc*** to add the product to favourites. 
+
+### Show Product
+Tapping any product in the **Products List** opens the product details page. You can change the quantity and add the product to cart. You can set the product as favourite. 
+- Has no **data source**. 
+- ***ProductsRepository*** is used to change quantity. 
+- **Use Cases**: 
+    - Increment Quantity
+    - Decrement Quantity
+    - Reset Quantity
+- **Bloc** takes in events to change quantity and emits the new quantity value, which is shown in the UI.
+- Add To Cart button calls the ***CartBloc*** in the Cart feature to add the product to cart. 
+- Add to Favourites calls the ***FavouriteProductsBloc*** to add the product to favourites. 
+
+### Cart
+A product can be added to cart from multiple places. This feature handles all cart use cases.
+
+- When the ***CartBloc*** is created, an event is triggered to load the saved cart from local storage. 
+- ***CartLocalDataSource*** is used to save and load the cart from local storage.
+- ***CartRepository*** has a map containing ***Product*** as key and its integer quantity as value. This repository is responsible for performing all cart functions. 
+- **Cart Use Cases**:
+    - Add To Cart
+    - Remove from Cart
+    - Clear Cart, to clear cart from carts page.
+    - Get Cart Items Count, to show a bubble above cart icon. 
+    - Get Cart Items, to show in carts page. 
+    - Get Total Price, to show in carts page. 
+    - Load Saved Cart, to fetch saved cart from local storage. 
+    - Save Cart, to save cart to local storage. 
+- ***CartBloc*** events are added in various places across the app.
+
+
+### Favourite Products
+Products can be added to favourites from multiple places. The workflow is similar to the cart workflow. This feature handles all use cases for favourite products.
+
+- When the ***FavouriteProductsBloc*** is created, an event is triggered to load the saved favourite products from local storage.
+- ***FavouriteProductsLocalDataSource*** is used to save and load the the favourite products from local storage.
+- ***FavouriteProductsRepository*** has a List containing ***Product*** objects. This repository is responsible for performing all favourite product functions.
+- **Favourite Product Use Cases**:
+    - Add Product To Favourite
+    - Remove From Favourite
+    - Clear Favourite Products, to clear favourite products from favourite products page.
+    - Get Favourite Products, to show in favourite products page. 
+    - Load Save Favourite Products, to fetch save favourite products from local storage.
+    - Save Favourite Products, to save to local storage. 
+- ***FavouriteProductsBloc*** events are added in various places across the app.
+
+## App Core
+This folder contains some app configurations and items that are commonly used throught the app.
+### Common Widgets
+Contains common widgets reused in multiple places. 
+
+
