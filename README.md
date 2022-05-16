@@ -106,6 +106,24 @@ Products can be added to favourites from multiple places. The workflow is simila
 This folder contains some app configurations and items that are commonly used throught the app.
 
 ### Common Widgets
-Contains common widgets reused in multiple places. 
+Contains common widgets reused in multiple places.
+
+### Error
+Contains a custom error response function that can be scaled to add all error cases and their appropriate responses
+
+### Utilities
+
+- ***AppConfig*** has static attributes that mut be initialized in the root page of the application. It contains following data for multiple app functions and configurations:
+    - Media query data
+    - Text sizes based on screen size
+    - Get Text Style function to standardize text style
+    - Confirmation Dialog function to be used anywhere
+    - Success, Warning and Failure snackbars to be used anywhere.
+- ***AppRouter*** defines an initial route and an onGenerateRoute functions with route strings. All attributes are static for static access. 
+- ***Constants.dart*** contains all constants and enums used with the app.
+- ***Helpers.dart*** contains helper functions.
+
+## Root
+This directory contains ***main.dart*** and ***multi_provider_widget.dart***. To reduce clutter in ***main.dart*** file, the ***multi_provider_widget.dart*** is used for ***MultiRepositoryProvider*** and ***MultiBlocProvider***.
 
 
