@@ -36,7 +36,6 @@ final sl = GetIt.instance;
 void initializeServiceLocator() {
   
   //Registering Repositories
-
   sl.registerSingleton<ProductsRepository>(ProductsRepository(
     productsLocalDataSource: ProductsLocalDataSource(),
   ));
@@ -46,11 +45,11 @@ void initializeServiceLocator() {
 
   sl.registerSingleton<FavouriteProductsRepository>(FavouriteProductsRepository(
       favouriteProductsLocalDataSource: FavouriteProductsLocalDataSource()));
-      
+
   sl.registerSingleton<ProductDetailsRepository>(ProductDetailsRepository());
 
+
   //Registering blocs
-  
   sl.registerLazySingleton<SplashBloc>(() => SplashBloc());
 
 
