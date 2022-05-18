@@ -2,6 +2,9 @@
 
 Demo Project for Bakersoft.
 
+## Update: 
+Added **get_it** for dependency injection
+
 ## Overview
 
 This is a shopping/marketplace app with cart and favourite products. It can run on both iOS and Android phones.
@@ -23,6 +26,7 @@ The app uses BLoC pattern and modular approach. Following dependencies are imple
 - **freezed** to generate data classes/blocs
 - **flutter_bloc** for state management
 - **shared_preferences** for access to local storage
+- **get_it** for dependencey injection
 
 ## App Features
 The app follows a modular approach. Each feature has its own module and each module is separated into data sources, domain and presentation layers. The assets folder contains a single ***products.json*** file containing products.
@@ -128,6 +132,9 @@ Contains a custom error response function that can be scaled to add all error ca
 - ***AppRouter*** defines an initial route and an onGenerateRoute functions with route strings. All attributes are static for static access. 
 - ***Constants.dart*** contains all constants and enums used with the app.
 - ***Helpers.dart*** contains helper functions.
+- **service_locator.dart** contains:
+    - Globally accessible dependency injector. 
+    - ***initializeServiceLocator*** function that registers repositories and blocs with **get_it**.
 
 ## Root
 This directory contains ***main.dart*** and ***multi_provider_widget.dart***. To reduce clutter in ***main.dart*** file, the ***multi_provider_widget.dart*** is used for ***MultiRepositoryProvider*** and ***MultiBlocProvider***.
