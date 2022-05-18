@@ -1,3 +1,4 @@
+import 'package:bakersoft_demo/core/utilities/service_locator.dart';
 import 'package:bakersoft_demo/features/cart/data_sources/cart_local_data_source.dart';
 import 'package:bakersoft_demo/features/cart/domain/repositories/cart_repository.dart';
 import 'package:bakersoft_demo/features/cart/domain/user_cases/add_to_cart.dart';
@@ -65,13 +66,13 @@ class MultiProviderWidget extends StatelessWidget {
       child: MultiBlocProvider(
       providers: [
           BlocProvider<SplashBloc>(
-            create: (context) => SplashBloc()..add(const SplashEvent.started()),
+            create: (context) => sl<SplashBloc>()..add(const SplashEvent.started()),
           ),
           BlocProvider<ProductsListBloc>(
             create: (context) => ProductsListBloc(
               GetAllProducts(
                 productsRepository:
-                    RepositoryProvider.of<ProductsRepository>(context),
+                    sl<ProductsRepository>(),
               ),
             )..add(const ProductsListEvent.get()),
           ),

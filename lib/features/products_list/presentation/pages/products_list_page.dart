@@ -28,7 +28,7 @@ class _ProductsListPageState extends State<ProductsListPage>
     _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
 
-    WidgetsBinding.instance?.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
     super.initState();
   }
 
@@ -37,7 +37,7 @@ class _ProductsListPageState extends State<ProductsListPage>
     _scrollController
       ..removeListener(_scrollListener)
       ..dispose();
-    WidgetsBinding.instance?.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
