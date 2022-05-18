@@ -132,11 +132,8 @@ Contains a custom error response function that can be scaled to add all error ca
 - ***AppRouter*** defines an initial route and an onGenerateRoute functions with route strings. All attributes are static for static access. 
 - ***Constants.dart*** contains all constants and enums used with the app.
 - ***Helpers.dart*** contains helper functions.
-- **service_locator.dart** contains:
+- ***service_locator.dart*** contains:
     - Globally accessible dependency injector. 
     - ***initializeServiceLocator*** function that registers repositories and blocs with **get_it**.
-
-## Root
-This directory contains ***main.dart*** and ***multi_provider_widget.dart***. To reduce clutter in ***main.dart*** file, the ***multi_provider_widget.dart*** is used for ***MultiRepositoryProvider*** and ***MultiBlocProvider***.
 
 
